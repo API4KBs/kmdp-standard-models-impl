@@ -26,12 +26,12 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>omg-cmmn</artifactId>
+  <artifactId>omg-dmn-11</artifactId>
 
-  <name>KMDP :: Lang :: OMG :: CMMN 1.1 Schemas</name>
+  <name>KMDP :: Lang :: OMG :: DMN 1.1 Schemas</name>
 
   <properties>
-    <xsd-name>org/omg/spec/cmmn/CMMN11.xsd</xsd-name>
+    <xsd-name>org/omg/spec/dmn/dmn.xsd</xsd-name>
   </properties>
 
   <dependencies>
@@ -43,7 +43,13 @@
       <groupId>org.jvnet.jaxb2_commons</groupId>
       <artifactId>jaxb2-basics</artifactId>
     </dependency>
+
+    <dependency>
+      <groupId>edu.mayo.kmdp</groupId>
+      <artifactId>kmdp-test-utils</artifactId>
+    </dependency>
   </dependencies>
+
 
   <build>
     <plugins>
@@ -53,7 +59,7 @@
         <artifactId>maven-jaxb2-plugin</artifactId>
         <executions>
           <execution>
-            <id>gen-cmmn</id>
+            <id>gen-dmn</id>
             <phase>process-resources</phase>
             <goals>
               <goal>generate</goal>
@@ -74,9 +80,7 @@
             </configuration>
           </execution>
         </executions>
-
       </plugin>
-
 
     </plugins>
   </build>

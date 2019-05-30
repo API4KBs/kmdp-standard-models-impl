@@ -20,37 +20,28 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <artifactId>hl7-models</artifactId>
+    <artifactId>omg-models</artifactId>
     <groupId>edu.mayo.kmdp</groupId>
     <version>2.0.0</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>hl7-knart</artifactId>
+  <artifactId>omg-cmmn-11</artifactId>
 
-  <name>KMDP :: Lang :: HL7 :: KNART Schemas</name>
+  <name>KMDP :: Lang :: OMG :: CMMN 1.1 Schemas</name>
 
   <properties>
-    <xsd-name>knowledgedocument.xsd</xsd-name>
-    <s>${file.separator}</s>
+    <xsd-name>org/omg/spec/cmmn/CMMN11.xsd</xsd-name>
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>edu.mayo.kmdp</groupId>
-      <artifactId>kmdp-lang-utils</artifactId>
-    </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.reflections</groupId>
-      <artifactId>reflections</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>info.cqframework</groupId>
-      <artifactId>elm</artifactId>
+      <groupId>org.jvnet.jaxb2_commons</groupId>
+      <artifactId>jaxb2-basics</artifactId>
     </dependency>
   </dependencies>
 
@@ -62,7 +53,7 @@
         <artifactId>maven-jaxb2-plugin</artifactId>
         <executions>
           <execution>
-            <id>gen-knart</id>
+            <id>gen-cmmn</id>
             <phase>process-resources</phase>
             <goals>
               <goal>generate</goal>
@@ -72,9 +63,7 @@
                 <schema>
                   <fileset>
                     <!-- Cannot use URL due to platform-specific file separators -->
-                    <directory>
-                      ${project.build.outputDirectory}${s}xsd${s}org${s}hl7${s}knowledgeartifact
-                    </directory>
+                    <directory>${project.build.outputDirectory}${file.separator}xsd</directory>
                     <includes>
                       <include>${xsd-name}</include>
                     </includes>
@@ -82,23 +71,15 @@
                 </schema>
               </schemas>
               <bindingDirectory>${project.build.outputDirectory}</bindingDirectory>
-              <bindingIncludes>
-                <include>**/*.xjb</include>
-                <include>**/*.episode</include>
-              </bindingIncludes>
             </configuration>
           </execution>
         </executions>
-        <dependencies>
-          <dependency>
-            <groupId>info.cqframework</groupId>
-            <artifactId>elm</artifactId>
-            <version>${cqf.version}</version>
-          </dependency>
-        </dependencies>
+
       </plugin>
+
 
     </plugins>
   </build>
+
 
 </project>
