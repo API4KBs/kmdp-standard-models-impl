@@ -20,7 +20,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <artifactId>hl7-models</artifactId>
+    <artifactId>kmdp-standard-models-impl</artifactId>
     <groupId>edu.mayo.kmdp</groupId>
     <version>2.0.0</version>
   </parent>
@@ -36,11 +36,7 @@
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>edu.mayo.kmdp</groupId>
-      <artifactId>kmdp-lang-utils</artifactId>
-    </dependency>
-    <dependency>
+     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
     </dependency>
