@@ -27,4 +27,11 @@
 
   <name>KMDP :: Standard Languages (Meta)Models, Grammars and Schemas</name>
 
+  <dependencies>
+    <dependency>
+      <groupId>edu.mayo.kmdp</groupId>
+      <artifactId>kmdp-terminology-model</artifactId>
+      <version>${kmdp.impl.version}</version>
+    </dependency>
+  </dependencies>
 </project>
