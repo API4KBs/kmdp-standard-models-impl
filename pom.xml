@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <version>[2.0.0,2.0.1)</version>
+    <version>(1.9.0.0,2.0.1)</version>
     <artifactId>kmdp-bom</artifactId>
     <groupId>edu.mayo.kmdp</groupId>
   </parent>
