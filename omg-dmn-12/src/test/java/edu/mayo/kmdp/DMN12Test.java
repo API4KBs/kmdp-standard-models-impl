@@ -22,13 +22,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import edu.mayo.kmdp.util.JaxbUtil;
 import edu.mayo.kmdp.util.Util;
 import edu.mayo.kmdp.util.XMLUtil;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintStream;
+import edu.mayo.kmdp.util.properties.jaxb.JaxbConfig.JaxbOptions;
 import java.net.URI;
 import java.util.Collections;
-import java.util.Optional;
 import org.junit.jupiter.api.Test;
 import org.omg.spec.dmn._20180521.model.ObjectFactory;
 import org.omg.spec.dmn._20180521.model.TDecision;
@@ -55,14 +51,7 @@ public class DMN12Test {
   public void testInValidation() {
     TDefinitions decision = new TDefinitions()
         .withName("example");
-
-    PrintStream stdErr = System.err;
-    try {
-      System.setErr(new NullPrintStream());
-      assertFalse(isValid(decision));
-    } finally {
-      System.setErr(stdErr);
-    }
+    assertFalse(isValid(decision));
   }
 
   boolean isValid(TDefinitions decision) {
@@ -74,36 +63,9 @@ public class DMN12Test {
                 decision,
                 of::createDefinitions,
                 s,
-                JaxbUtil.defaultProperties()))
+                JaxbUtil.defaultProperties()
+            .with(JaxbOptions.LOG_EXCEPTIONS,false)))
         .flatMap(Util::asString).isPresent();
-  }
-
-
-  private static class NullPrintStream extends PrintStream {
-
-    public NullPrintStream() {
-      super(new NullByteArrayOutputStream());
-    }
-
-    private static class NullByteArrayOutputStream extends ByteArrayOutputStream {
-
-      @Override
-      public void write(int b) {
-        // do nothing
-      }
-
-      @Override
-      public void write(byte[] b, int off, int len) {
-        // do nothing
-      }
-
-      @Override
-      public void writeTo(OutputStream out) throws IOException {
-        // do nothing
-      }
-
-    }
-
   }
 
 }
