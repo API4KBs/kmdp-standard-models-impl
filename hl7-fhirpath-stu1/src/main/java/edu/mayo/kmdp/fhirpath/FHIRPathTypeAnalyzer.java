@@ -1,15 +1,17 @@
 /**
  * Copyright © 2018 Mayo Clinic (RSTKNOWLEDGEMGMT@mayo.edu)
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
- * in compliance with the License. You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software distributed under the License
- * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
- * or implied. See the License for the specific language governing permissions and limitations under
- * the License.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package edu.mayo.kmdp.fhirpath;
 
@@ -21,8 +23,8 @@ import org.hl7.fhir.dstu3.hapi.ctx.HapiWorkerContext;
 import org.hl7.fhir.dstu3.hapi.ctx.IValidationSupport;
 import org.hl7.fhir.dstu3.hapi.validation.DefaultProfileValidationSupport;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
-import org.hl7.fhir.dstu3.model.Enumerations;
 import org.hl7.fhir.dstu3.model.Enumerations.DataType;
+import org.hl7.fhir.dstu3.model.Enumerations.FHIRAllTypes;
 import org.hl7.fhir.dstu3.model.ExpressionNode;
 import org.hl7.fhir.dstu3.model.ExpressionNode.Function;
 import org.hl7.fhir.dstu3.model.ResourceType;
@@ -43,87 +45,100 @@ public class FHIRPathTypeAnalyzer {
     validator.fetchAllStructureDefinitions(fhirContext);
   }
 
-  public Optional<DataType> inferType(String pathExpression) {
+  public Optional<FHIRAllTypes> inferType(String pathExpression) {
+    return inferType(pathExpression,true);
+  }
+
+  public Optional<FHIRAllTypes> inferType(String pathExpression, boolean lenient) {
     try {
       ExpressionNode rootNode = fhirPath3Engine.parse(pathExpression);
-      return Optional.ofNullable(process(rootNode, null, ResourceType.Bundle));
+      FHIRAllTypes rootType =
+          isResource(rootNode.getName())
+              ? FHIRAllTypes.fromCode(rootNode.getName())
+              : FHIRAllTypes.BUNDLE;
+      return Optional.ofNullable(process(rootNode, rootType));
     } catch (FHIRException fe) {
-      logger.warn(fe.getMessage(), fe);
-      return Optional.empty();
+      if (lenient) {
+        logger.trace(fe.getMessage(), fe);
+        return Optional.empty();
+      } else {
+        throw new IllegalStateException(fe);
+      }
     }
   }
 
-  private DataType process(
-      ExpressionNode rootNode, Enumerations.DataType dataType, ResourceType resourceType) {
+  private FHIRAllTypes process(
+      ExpressionNode rootNode, FHIRAllTypes type) {
     if (rootNode == null) {
-      return dataType;
+      return type;
     }
     switch (rootNode.getKind()) {
       case Name:
-        return processStep(rootNode, dataType, resourceType);
+        return processStep(rootNode, type);
       case Constant:
         throw new UnsupportedOperationException();
       case Function:
-        return processFunction(rootNode.getFunction(), rootNode);
+        return processFunction(rootNode.getFunction(), rootNode, type);
       case Group:
         throw new UnsupportedOperationException();
     }
     throw new UnsupportedOperationException();
   }
 
-  private DataType processStep(ExpressionNode node,
-      DataType dataType, ResourceType resourceType) {
+  private FHIRAllTypes processStep(ExpressionNode node, FHIRAllTypes type) {
     String step = node.getName();
 
     if (isResource(step)) {
-      return process(node.getInner(), null, ResourceType.fromCode(step));
-    } else if (resourceType == null && isDatatype(step)) {
-      return DataType.fromCode(step);
-    } else if (resourceType != null) {
-      return processElement(node, step, resourceType);
+      return process(node.getInner(), FHIRAllTypes.fromCode(step));
+    } else if (type == null && isDatatype(step)) {
+      return FHIRAllTypes.fromCode(step);
+    } else if (type != null) {
+      return processElement(node, step, type);
     } else {
       throw new UnsupportedOperationException(" Unable to determine type for expression " + node);
     }
   }
 
-  private DataType processElement(ExpressionNode node, String step,
-      ResourceType resourceType) {
-    ElementDefinition element = asElement(step, resourceType)
-        .orElseThrow(UnsupportedOperationException::new);
-    if (element.getType().size() > 1) {
-      return process(node.getInner(), DataType.BACKBONEELEMENT, null);
+  private FHIRAllTypes processElement(ExpressionNode node, String elementName, FHIRAllTypes type) {
+    if ("resource".equals(elementName)) {
+      return process(node.getInner(),FHIRAllTypes.RESOURCE);
     }
-    String type = element.getTypeFirstRep().getCode();
-    if (isResource(type)) {
-      return process(node.getInner(), null, ResourceType.fromCode(type));
-    } else if (isDatatype(type)) {
-      return process(node.getInner(), DataType.fromCode(type), null);
+    ElementDefinition element = asElement(elementName, type)
+        .orElseThrow(UnsupportedOperationException::new);
+    if (element == null || element.getType().size() > 1) {
+      return process(node.getInner(), FHIRAllTypes.BACKBONEELEMENT);
+    }
+    String typeStr = element.getTypeFirstRep().getCode();
+    if (isResource(typeStr)) {
+      return process(node.getInner(), FHIRAllTypes.fromCode(typeStr));
+    } else if (isDatatype(typeStr)) {
+      return process(node.getInner(), FHIRAllTypes.fromCode(typeStr));
     } else {
       throw new UnsupportedOperationException();
     }
   }
 
-  private Optional<ElementDefinition> asElement(String step, ResourceType resourceType) {
-    StructureDefinition schema = validator.fetchStructureDefinition(
-        fhirContext, resourceType.name());
+  private Optional<ElementDefinition> asElement(String step, FHIRAllTypes type) {
+    StructureDefinition schema =
+        validator.fetchStructureDefinition(fhirContext, type.toCode());
     if (schema == null) {
       return Optional.empty();
     }
-    Optional<ElementDefinition> elem = tryGetElement(schema, resourceType, step);
+    Optional<ElementDefinition> elem = tryGetElement(schema, type, step);
     if (!elem.isPresent()) {
-      elem = tryGetElement(schema, resourceType, step + "[x]");
+      elem = tryGetElement(schema, type, step + "[x]");
     }
     return elem;
   }
 
   private Optional<ElementDefinition> tryGetElement(StructureDefinition schema,
-      ResourceType resourceType, String step) {
+      FHIRAllTypes resourceType, String step) {
     if (schema.getDifferential() == null || schema.getDifferential().getElement() == null) {
       return Optional.empty();
     }
     return schema.getDifferential().getElement().stream()
         .filter(elDef -> elDef.getPath() != null
-            && elDef.getPath().equals(resourceType.name() + "." + step))
+            && elDef.getPath().equals(resourceType.toCode() + "." + step))
         .findFirst();
   }
 
@@ -143,16 +158,19 @@ public class FHIRPathTypeAnalyzer {
     }
   }
 
-  private DataType processFunction(Function function, ExpressionNode rootNode) {
+  private FHIRAllTypes processFunction(Function function, ExpressionNode rootNode, FHIRAllTypes type) {
     switch (function) {
       case Not:
-        return DataType.BOOLEAN;
+      case Exists:
       case Empty:
-        return DataType.BOOLEAN;
+        return FHIRAllTypes.BOOLEAN;
       case As:
-        return process(rootNode.getParameters().get(0), null, null);
+        FHIRAllTypes castType = FHIRAllTypes.fromCode(rootNode.getParameters().get(0).toString());
+        return process(rootNode.getInner(),castType);
+      case First:
+        return process(rootNode.getInner(),type);
       default:
-        return DataType.BOOLEAN;
+        return FHIRAllTypes.NULL;
     }
   }
 
