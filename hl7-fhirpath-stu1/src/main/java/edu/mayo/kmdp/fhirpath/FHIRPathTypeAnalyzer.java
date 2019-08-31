@@ -17,8 +17,8 @@ package edu.mayo.kmdp.fhirpath;
 
 import ca.uhn.fhir.context.FhirContext;
 import java.util.Optional;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 import org.hl7.fhir.dstu3.hapi.ctx.HapiWorkerContext;
 import org.hl7.fhir.dstu3.hapi.ctx.IValidationSupport;
 import org.hl7.fhir.dstu3.hapi.validation.DefaultProfileValidationSupport;
@@ -34,7 +34,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 
 public class FHIRPathTypeAnalyzer {
 
-  private static Logger logger = LogManager.getLogger(FHIRPathTypeAnalyzer.class);
+  private static Logger logger = LoggerFactory.getLogger(FHIRPathTypeAnalyzer.class);
 
   private IValidationSupport validator = new DefaultProfileValidationSupport();
   private FhirContext fhirContext = FhirContext.forDstu3();
