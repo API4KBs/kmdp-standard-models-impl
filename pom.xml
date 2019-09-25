@@ -5,17 +5,18 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <version>3.0.0</version> 
+    <version>4.0.0</version> 
     <artifactId>kmdp-bom</artifactId>
     <groupId>edu.mayo.kmdp</groupId>
   </parent>
 
   <artifactId>kmdp-standard-models-impl</artifactId>
-  <version>3.0.0</version>
+  <version>4.0.0</version>
 
   <packaging>pom</packaging>
 
   <modules>
+    <module>hl7-fhirpath-stu1</module>
     <module>hl7-fhir-dstu2</module>
     <module>hl7-fhir-stu3</module>
     <module>hl7-knart-13</module>
