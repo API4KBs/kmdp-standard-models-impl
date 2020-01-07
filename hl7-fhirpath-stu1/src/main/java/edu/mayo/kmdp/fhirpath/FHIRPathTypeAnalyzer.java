@@ -17,11 +17,11 @@ package edu.mayo.kmdp.fhirpath;
 
 import ca.uhn.fhir.context.FhirContext;
 import java.util.Optional;
+import org.hl7.fhir.dstu3.hapi.ctx.DefaultProfileValidationSupport;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 import org.hl7.fhir.dstu3.hapi.ctx.HapiWorkerContext;
 import org.hl7.fhir.dstu3.hapi.ctx.IValidationSupport;
-import org.hl7.fhir.dstu3.hapi.validation.DefaultProfileValidationSupport;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.Enumerations.DataType;
 import org.hl7.fhir.dstu3.model.Enumerations.FHIRAllTypes;
