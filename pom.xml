@@ -21,6 +21,7 @@
     <module>omg-dmn-11</module>
     <module>omg-dmn-12</module>
     <module>omg-cmmn-11</module>
+    <module>omg-bpmn-202</module>
     <module>w3c-odrl-21</module>
   </modules>
 

@@ -1,0 +1,55 @@
+<!--
+
+    Copyright © 2018 Mayo Clinic (RSTKNOWLEDGEMGMT@mayo.edu)
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+
+  <public publicId="http://www.omg.org/spec/BPMN/20100524/MODEL"
+    uri="org/omg/spec/bpmn/BPMN20.xsd"/>
+  <system systemId="http://www.omg.org/spec/BPMN/20100524/MODEL"
+    uri="org/omg/spec/bpmn/BPMN20.xsd"/>
+  <uri name="http://www.omg.org/spec/BPMN/20100524/MODEL"
+    uri="org/omg/spec/bpmn/BPMN20.xsd"/>
+
+  <system systemId="Semantic.xsd"
+    uri="org/omg/spec/bpmn/Semantic.xsd"/>
+  <public publicId="Semantic.xsd"
+    uri="org/omg/spec/bpmn/Semantic.xsd"/>
+  <uri name="Semantic.xsd"
+    uri="org/omg/spec/bpmn/Semantic.xsd"/>
+
+  <public publicId="http://www.omg.org/spec/BPMN/20100524/BPMNDI"
+    uri="org/omg/spec/bpmn/BPMNDI.xsd"/>
+  <system systemId="http://www.omg.org/spec/BPMN/20100524/BPMNDI"
+    uri="org/omg/spec/bpmn/BPMNDI.xsd"/>
+  <uri name="http://www.omg.org/spec/BPMN/20100524/BPMNDI"
+    uri="org/omg/spec/bpmn/BPMNDI.xsd"/>
+
+  <public publicId="http://www.omg.org/spec/BPMN/20100524/DC"
+    uri="org/omg/spec/bpmn/DC.xsd"/>
+  <system systemId="http://www.omg.org/spec/BPMN/20100524/DC"
+    uri="org/omg/spec/bpmn/DC.xsd"/>
+  <uri name="http://www.omg.org/spec/BPMN/20100524/DC"
+    uri="org/omg/spec/bpmn/DC.xsd"/>
+
+  <public publicId="http://www.omg.org/spec/BPMN/20100524/DI"
+    uri="org/omg/spec/bpmn/DI.xsd"/>
+  <system systemId="http://www.omg.org/spec/BPMN/20100524/DI"
+    uri="org/omg/spec/bpmn/DI.xsd"/>
+  <uri name="http://www.omg.org/spec/BPMN/20100524/DI"
+    uri="org/omg/spec/bpmn/DI.xsd"/>
+
+</catalog>

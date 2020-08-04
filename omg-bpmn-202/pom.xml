@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>kmdp-standard-models-impl</artifactId>
+    <groupId>edu.mayo.kmdp</groupId>
+    <version>7.0.1-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>omg-bpmn-202</artifactId>
+
+  <name>KMDP :: Lang :: OMG :: BPMN 2.0.2 Schemas</name>
+
+  <properties>
+    <xsd-name>org/omg/spec/bpmn/BPMN20.xsd</xsd-name>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jvnet.jaxb2_commons</groupId>
+      <artifactId>jaxb2-basics</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>org.jvnet.jaxb2.maven2</groupId>
+        <artifactId>maven-jaxb2-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>gen-bpmn</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <schemas>
+                <schema>
+                  <fileset>
+                    <!-- Cannot use URL due to platform-specific file separators -->
+                    <directory>${project.build.outputDirectory}${file.separator}xsd</directory>
+                    <includes>
+                      <include>${xsd-name}</include>
+                    </includes>
+                  </fileset>
+                </schema>
+              </schemas>
+              <bindingDirectory>${project.build.outputDirectory}</bindingDirectory>
+            </configuration>
+          </execution>
+        </executions>
+
+      </plugin>
+
+
+    </plugins>
+  </build>
+
+
+</project>
