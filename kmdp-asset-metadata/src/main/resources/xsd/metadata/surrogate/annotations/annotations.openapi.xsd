@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://kmdp.mayo.edu/metadata/annotations/resources"
+           xmlns:annox="http://annox.dev.java.net"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+           xmlns:xmi="http://www.omg.org/spec/XMI/20131001"
+           xmlns:pns="http://kmdp.mayo.edu/metadata/annotations"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="qualified"
+           targetNamespace="http://kmdp.mayo.edu/metadata/annotations/resources"
+           jaxb:extensionBindingPrefixes="annox"
+           jaxb:version="2.1">
+   <xs:import namespace="http://kmdp.mayo.edu/metadata/annotations"
+              schemaLocation="annotations.xsd"/>
+   <xs:element name="simpleAnnotation">
+      <xs:complexType>
+         <xs:annotation>
+            <xs:appinfo>
+               <annox:annotateClass>@javax.xml.bind.annotation.XmlRootElement(name="simpleAnnotation", namespace="http://kmdp.mayo.edu/metadata/annotations")</annox:annotateClass>
+            </xs:appinfo>
+         </xs:annotation>
+         <xs:complexContent>
+            <xs:extension base="pns:SimpleAnnotation"/>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="complexAnnotation">
+      <xs:complexType>
+         <xs:annotation>
+            <xs:appinfo>
+               <annox:annotateClass>@javax.xml.bind.annotation.XmlRootElement(name="complexAnnotation", namespace="http://kmdp.mayo.edu/metadata/annotations")</annox:annotateClass>
+            </xs:appinfo>
+         </xs:annotation>
+         <xs:complexContent>
+            <xs:extension base="pns:ComplexAnnotation"/>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="multiwordAnnotation">
+      <xs:complexType>
+         <xs:annotation>
+            <xs:appinfo>
+               <annox:annotateClass>@javax.xml.bind.annotation.XmlRootElement(name="multiwordAnnotation", namespace="http://kmdp.mayo.edu/metadata/annotations")</annox:annotateClass>
+            </xs:appinfo>
+         </xs:annotation>
+         <xs:complexContent>
+            <xs:extension base="pns:MultiwordAnnotation"/>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="basicAnnotation">
+      <xs:complexType>
+         <xs:annotation>
+            <xs:appinfo>
+               <annox:annotateClass>@javax.xml.bind.annotation.XmlRootElement(name="basicAnnotation", namespace="http://kmdp.mayo.edu/metadata/annotations")</annox:annotateClass>
+            </xs:appinfo>
+         </xs:annotation>
+         <xs:complexContent>
+            <xs:extension base="pns:BasicAnnotation"/>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="datatypeAnnotation">
+      <xs:complexType>
+         <xs:annotation>
+            <xs:appinfo>
+               <annox:annotateClass>@javax.xml.bind.annotation.XmlRootElement(name="datatypeAnnotation", namespace="http://kmdp.mayo.edu/metadata/annotations")</annox:annotateClass>
+            </xs:appinfo>
+         </xs:annotation>
+         <xs:complexContent>
+            <xs:extension base="pns:DatatypeAnnotation"/>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

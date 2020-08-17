@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KnowledgeAssetTypes"
+           targetNamespace="https://ontology.mayo.edu/taxonomies/KAO/KnowledgeAssetType/20190801/"
+           elementFormDefault="qualified"
+           xmlns="https://ontology.mayo.edu/taxonomies/KAO/KnowledgeAssetType/20190801/"
+           xmlns:id="http://www.omg.org/spec/API4KP/1.0/identifiers"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.omg.org/spec/API4KP/1.0/identifiers"/>
+
+    <xs:complexType name="KnowledgeAssetType">
+      <xs:complexContent>
+        <xs:extension base="id:ConceptIdentifier">
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+
+    <xs:simpleType name="KnowledgeAssetType_Valueset">
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/ConceptualModel"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/FormalOntology"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/FactualKnowledge"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/ContextualizabledKnowledge"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/CognitiveProcessModel"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/DecisionTaskModel"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/MultiAgentDecisionTaskModel"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/InformationModel"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/SemanticInformationModel"/>
+        <xs:enumeration value="http://ontology.mayo.edu/ontologies/clinicalknowledgeassets/ClinicalRule"/>
+        <xs:enumeration value="http://ontology.mayo.edu/ontologies/clinicalknowledgeassets/ClinicalPracticeGuideline"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/DocumentationTemplate"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/Questionnaire"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/ValueSet"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/Protocol"/>
+        <xs:enumeration value="http://ontology.mayo.edu/ontologies/clinicalknowledgeassets/ClinicalProtocol"/>
+        <xs:enumeration value="http://ontology.mayo.edu/ontologies/clinicalknowledgeassets/NursingProtocol"/>
+        <xs:enumeration value="http://ontology.mayo.edu/ontologies/clinicalknowledgeassets/ClinicalTrialProtocol"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/Grammar"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/FormalGrammar"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/DescriptiveGrammar"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/PrescriptiveGrammar"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/Lexicon"/>
+        <xs:enumeration value="http://ontology.mayo.edu/ontologies/clinicalknowledgeassets/OrderSet"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/InquirySpecification"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/AssessmentModel"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/DecisionModel"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/FunctionalExpression"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/Equation"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/ComputableDecisionModel"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/SemanticDecisionModel"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/PredictiveModel"/>
+        <xs:enumeration value="http://ontology.mayo.edu/ontologies/clinicalknowledgeassets/QualityMeasure"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/CohortDefinition"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/ServiceDescription"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/ServiceProfile"/>
+        <xs:enumeration value="http://ontology.mayo.edu/ontologies/clinicalknowledgeassets/CareProcessModel"/>
+        <xs:enumeration value="http://ontology.mayo.edu/ontologies/clinicalknowledgeassets/CognitiveCareProcessModel"/>
+      </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

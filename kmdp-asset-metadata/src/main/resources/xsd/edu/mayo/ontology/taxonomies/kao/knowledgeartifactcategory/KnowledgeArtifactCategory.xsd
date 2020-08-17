@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KnowledgeArtifactCategories"
+           targetNamespace="https://ontology.mayo.edu/taxonomies/KAO/KnowledgeArtifactCategory"
+           elementFormDefault="qualified"
+           xmlns="https://ontology.mayo.edu/taxonomies/KAO/KnowledgeArtifactCategory"
+           xmlns:id="http://www.omg.org/spec/API4KP/1.0/identifiers"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.omg.org/spec/API4KP/1.0/identifiers"/>
+
+    <xs:complexType name="KnowledgeArtifactCategory">
+      <xs:complexContent>
+        <xs:extension base="id:ConceptIdentifier">
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+
+    <xs:simpleType name="KnowledgeArtifactCategory_Valueset">
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="http://purl.org/dc/dcmitype/Dataset"/>
+        <xs:enumeration value="http://purl.org/dc/dcmitype/Sound"/>
+        <xs:enumeration value="http://purl.org/dc/dcmitype/Collection"/>
+        <xs:enumeration value="http://purl.org/dc/dcmitype/Text"/>
+        <xs:enumeration value="http://purl.org/dc/dcmitype/Software"/>
+        <xs:enumeration value="http://purl.org/dc/dcmitype/Image"/>
+        <xs:enumeration value="http://purl.org/dc/dcmitype/StillImage"/>
+        <xs:enumeration value="http://purl.org/dc/dcmitype/MovingImage"/>
+        <xs:enumeration value="http://purl.org/dc/dcmitype/InteractiveResource"/>
+        <xs:enumeration value="http://purl.org/dc/dcmitype/Service"/>
+        <xs:enumeration value="http://purl.org/dc/dcmitype/PhysicalObject"/>
+        <xs:enumeration value="http://purl.org/dc/dcmitype/Event"/>
+      </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

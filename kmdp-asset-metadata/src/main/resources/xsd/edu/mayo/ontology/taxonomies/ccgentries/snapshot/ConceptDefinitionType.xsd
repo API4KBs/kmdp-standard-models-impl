@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ConceptDefinitionTypes"
+           targetNamespace="https://ontology.mayo.edu/taxonomies/ccgEntries/SNAPSHOT/"
+           elementFormDefault="qualified"
+           xmlns="https://ontology.mayo.edu/taxonomies/ccgEntries/SNAPSHOT/"
+           xmlns:id="http://www.omg.org/spec/API4KP/1.0/identifiers"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.omg.org/spec/API4KP/1.0/identifiers"/>
+
+    <xs:complexType name="ConceptDefinitionType">
+      <xs:complexContent>
+        <xs:extension base="id:ConceptIdentifier">
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+
+    <xs:simpleType name="ConceptDefinitionType_Valueset">
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="http://ontology.mayo.edu/ontologies/CCG/ServiceBasedDefinition"/>
+        <xs:enumeration value="http://ontology.mayo.edu/ontologies/CCG/CognitivelyAssistedConceptDefinition"/>
+        <xs:enumeration value="http://ontology.mayo.edu/ontologies/CCG/KnowledgeBasedConceptDefinition"/>
+        <xs:enumeration value="http://ontology.mayo.edu/ontologies/CCG/NLPBasedConceptDefinition"/>
+        <xs:enumeration value="http://ontology.mayo.edu/ontologies/CCG/LogicBasedConceptDefinition"/>
+        <xs:enumeration value="http://ontology.mayo.edu/ontologies/CCG/StatisticalConceptDefinition"/>
+        <xs:enumeration value="http://ontology.mayo.edu/ontologies/CCG/InteractiveConceptDefinition"/>
+        <xs:enumeration value="http://ontology.mayo.edu/ontologies/CCG/HumanResolutionConceptDefinition"/>
+      </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

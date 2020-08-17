@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxb:bindings xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns:annox="http://annox.dev.java.net"
+               xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+               xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
+               version="2.1"
+               jaxb:extensionBindingPrefixes="xjc annox">
+   <jaxb:bindings schemaLocation="annotations.xsd" node="/xs:schema">
+      <jaxb:bindings node="xs:complexType[@name='Annotation']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = Annotation.class,  property = "_class" )</annox:annotate>
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonSubTypes( {@com.fasterxml.jackson.annotation.JsonSubTypes.Type( name = "SimpleAnnotation",  value = edu.mayo.kmdp.metadata.annotations.SimpleAnnotation.class ),@com.fasterxml.jackson.annotation.JsonSubTypes.Type( name = "ComplexAnnotation",  value = edu.mayo.kmdp.metadata.annotations.ComplexAnnotation.class ),@com.fasterxml.jackson.annotation.JsonSubTypes.Type( name = "MultiwordAnnotation",  value = edu.mayo.kmdp.metadata.annotations.MultiwordAnnotation.class ),@com.fasterxml.jackson.annotation.JsonSubTypes.Type( name = "BasicAnnotation",  value = edu.mayo.kmdp.metadata.annotations.BasicAnnotation.class ),@com.fasterxml.jackson.annotation.JsonSubTypes.Type( name = "DatatypeAnnotation",  value = edu.mayo.kmdp.metadata.annotations.DatatypeAnnotation.class )})</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='SimpleAnnotation']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = SimpleAnnotation.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='ComplexAnnotation']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = ComplexAnnotation.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='MultiwordAnnotation']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = MultiwordAnnotation.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='BasicAnnotation']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = BasicAnnotation.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='DatatypeAnnotation']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = DatatypeAnnotation.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='Applicability']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = Applicability.class,  property = "_class" )</annox:annotate>
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonSubTypes( {@com.fasterxml.jackson.annotation.JsonSubTypes.Type( name = "SimpleApplicability",  value = edu.mayo.kmdp.metadata.annotations.SimpleApplicability.class ),@com.fasterxml.jackson.annotation.JsonSubTypes.Type( name = "ComplexApplicability",  value = edu.mayo.kmdp.metadata.annotations.ComplexApplicability.class )})</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='SimpleApplicability']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = SimpleApplicability.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='ComplexApplicability']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = ComplexApplicability.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+   </jaxb:bindings>
+</jaxb:bindings>

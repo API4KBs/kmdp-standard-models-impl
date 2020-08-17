@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxb:bindings version="2.1"
+               xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+               xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+               xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <jaxb:bindings schemaLocation="KnowledgeRepresentationLanguage.xsd"
+                 node="/xs:schema">
+
+    <jaxb:bindings node="//xs:complexType[@name='KnowledgeRepresentationLanguage']">
+      <jaxb:class ref="edu.mayo.ontology.taxonomies.krlanguage.KnowledgeRepresentationLanguage" />
+    </jaxb:bindings>
+
+    <jaxb:bindings node="//xs:simpleType[@name='KnowledgeRepresentationLanguage_Valueset']">
+      <jaxb:typesafeEnumClass ref="edu.mayo.ontology.taxonomies.krlanguage._20190801.KnowledgeRepresentationLanguage" />
+
+      <xjc:javaType name="edu.mayo.ontology.taxonomies.krlanguage._20190801.KnowledgeRepresentationLanguage"
+                    adapter="edu.mayo.ontology.taxonomies.krlanguage._20190801.KnowledgeRepresentationLanguage.Adapter"/>
+    </jaxb:bindings>
+
+  </jaxb:bindings>
+</jaxb:bindings>

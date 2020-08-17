@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KnowledgeRepresentationLanguages"
+           targetNamespace="https://ontology.mayo.edu/taxonomies/KRLanguage/SNAPSHOT/"
+           elementFormDefault="qualified"
+           xmlns="https://ontology.mayo.edu/taxonomies/KRLanguage/SNAPSHOT/"
+           xmlns:id="http://www.omg.org/spec/API4KP/1.0/identifiers"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.omg.org/spec/API4KP/1.0/identifiers"/>
+
+    <xs:complexType name="KnowledgeRepresentationLanguage">
+      <xs:complexContent>
+        <xs:extension base="id:ConceptIdentifier">
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+
+    <xs:simpleType name="KnowledgeRepresentationLanguage_Valueset">
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="https://mustache.github.io/"/>
+        <xs:enumeration value="http://kmdp.mayo.edu/CQL/1.3/essentials"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/1.0/surrogate/annos"/>
+        <xs:enumeration value="https://www.w3.org/TR/sparql11-query/"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/1.0/"/>
+        <xs:enumeration value="http://www.w3.org/2002/07/owl"/>
+        <xs:enumeration value="https://www.w3.org/TR/html52/"/>
+        <xs:enumeration value="https://www.omg.org/spec/DMN/1.1/FEEL"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/1.0/services"/>
+        <xs:enumeration value="http://hl7.org/fhir/STU3"/>
+        <xs:enumeration value="http://www.w3.org/ns/owl-profile/DL"/>
+        <xs:enumeration value="http://kmdp.mayo.edu/ccg/1.0"/>
+        <xs:enumeration value="https://graphql.github.io/graphql-spec/queries"/>
+        <xs:enumeration value="https://www.w3.org/TR/xhtml1/"/>
+        <xs:enumeration value="https://www.omg.org/spec/UML/profiles/resource"/>
+        <xs:enumeration value="https://www.omg.org/spec/UML/2.5/"/>
+        <xs:enumeration value="https://www.omg.org/spec/DMN/1.1/"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/1.0/datatypes"/>
+        <xs:enumeration value="https://cql.hl7.org"/>
+        <xs:enumeration value="https://swagger.io/specification/2-0"/>
+        <xs:enumeration value="https://www.w3.org/TR/xslt-30/"/>
+        <xs:enumeration value="http://kmdp.mayo.edu/ccpm/1.0"/>
+        <xs:enumeration value="http://www.w3.org/ns/owl-profile/EL"/>
+        <xs:enumeration value="https://www.w3.org/TR/xmlschema11-1/"/>
+        <xs:enumeration value="http://www.w3.org/ns/owl-profile/Full"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/1.0/identifiers"/>
+        <xs:enumeration value="http://kmdp.mayo.edu/serviceprofile/1.0"/>
+        <xs:enumeration value="https://www.omg.org/spec/DMN/1.2/"/>
+        <xs:enumeration value="https://www.iso.org/standard/66249"/>
+        <xs:enumeration value="http://hl7.org/KNART/1.3"/>
+        <xs:enumeration value="https://www.omg.org/spec/BPMN/2.0/"/>
+        <xs:enumeration value="http://hl7.org/fhir/DSTU2"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/1.0/surrogate/2.0"/>
+        <xs:enumeration value="https://graphql.github.io/graphql-spec/schemas"/>
+        <xs:enumeration value="http://hl7.org/ELM/1.2"/>
+        <xs:enumeration value="http://www.w3.org/ns/owl-profile/QL"/>
+        <xs:enumeration value="https://jdk.java.net/8/"/>
+        <xs:enumeration value="https://www.omg.org/spec/CMMN/1.1/"/>
+        <xs:enumeration value="https://graphql.github.io/graphql-spec/June2018/"/>
+        <xs:enumeration value="http://docs.oasis-open.org/dita/dita/v1.3/"/>
+        <xs:enumeration value="http://www.w3.org/ns/owl-profile/RL"/>
+        <xs:enumeration value="http://hl7.org/fhirpath/"/>
+        <xs:enumeration value="https://www.omg.org/spec/DMN/1.2/FEEL"/>
+        <xs:enumeration value="http://reaction.ruleml.org/1.02/"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/1.0/surrogate"/>
+      </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

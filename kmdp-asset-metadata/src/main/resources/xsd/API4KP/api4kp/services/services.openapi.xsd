@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.omg.org/spec/API4KP/1.0/services/resources"
+           xmlns:annox="http://annox.dev.java.net"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+           xmlns:xmi="http://www.omg.org/spec/XMI/20131001"
+           xmlns:pns="http://www.omg.org/spec/API4KP/1.0/services"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="qualified"
+           targetNamespace="http://www.omg.org/spec/API4KP/1.0/services/resources"
+           jaxb:extensionBindingPrefixes="annox"
+           jaxb:version="2.1">
+   <xs:import namespace="http://www.omg.org/spec/API4KP/1.0/services"
+              schemaLocation="services.xsd"/>
+   <xs:element name="parameterDefinitions">
+      <xs:complexType>
+         <xs:annotation>
+            <xs:appinfo>
+               <annox:annotateClass>@javax.xml.bind.annotation.XmlRootElement(name="parameterDefinitions", namespace="http://www.omg.org/spec/API4KP/1.0/services")</annox:annotateClass>
+            </xs:appinfo>
+         </xs:annotation>
+         <xs:complexContent>
+            <xs:extension base="pns:ParameterDefinitions"/>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="knowledgeCarrier">
+      <xs:complexType>
+         <xs:annotation>
+            <xs:appinfo>
+               <annox:annotateClass>@javax.xml.bind.annotation.XmlRootElement(name="knowledgeCarrier", namespace="http://www.omg.org/spec/API4KP/1.0/services")</annox:annotateClass>
+            </xs:appinfo>
+         </xs:annotation>
+         <xs:complexContent>
+            <xs:extension base="pns:KnowledgeCarrier"/>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="job">
+      <xs:complexType>
+         <xs:annotation>
+            <xs:appinfo>
+               <annox:annotateClass>@javax.xml.bind.annotation.XmlRootElement(name="job", namespace="http://www.omg.org/spec/API4KP/1.0/services")</annox:annotateClass>
+            </xs:appinfo>
+         </xs:annotation>
+         <xs:complexContent>
+            <xs:extension base="pns:Job"/>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="deliberation">
+      <xs:complexType>
+         <xs:annotation>
+            <xs:appinfo>
+               <annox:annotateClass>@javax.xml.bind.annotation.XmlRootElement(name="deliberation", namespace="http://www.omg.org/spec/API4KP/1.0/services")</annox:annotateClass>
+            </xs:appinfo>
+         </xs:annotation>
+         <xs:complexContent>
+            <xs:extension base="pns:Deliberation"/>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="knowledgeBase">
+      <xs:complexType>
+         <xs:annotation>
+            <xs:appinfo>
+               <annox:annotateClass>@javax.xml.bind.annotation.XmlRootElement(name="knowledgeBase", namespace="http://www.omg.org/spec/API4KP/1.0/services")</annox:annotateClass>
+            </xs:appinfo>
+         </xs:annotation>
+         <xs:complexContent>
+            <xs:extension base="pns:KnowledgeBase"/>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KnowledgeAssetRoles"
+           targetNamespace="https://ontology.mayo.edu/taxonomies/KAO/KnowledgeAssetRole/SNAPSHOT/"
+           elementFormDefault="qualified"
+           xmlns="https://ontology.mayo.edu/taxonomies/KAO/KnowledgeAssetRole/SNAPSHOT/"
+           xmlns:id="http://www.omg.org/spec/API4KP/1.0/identifiers"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.omg.org/spec/API4KP/1.0/identifiers"/>
+
+    <xs:complexType name="KnowledgeAssetRole">
+      <xs:complexContent>
+        <xs:extension base="id:ConceptIdentifier">
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+
+    <xs:simpleType name="KnowledgeAssetRole_Valueset">
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/ComponentKnowledgeAsset"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/OperationalConceptDefinition"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kao/CompositeKnowledgeAsset"/>
+      </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

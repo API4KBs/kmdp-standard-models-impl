@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxb:bindings version="2.1"
+               xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+               xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+               xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <jaxb:bindings schemaLocation="SerializationFormat.xsd"
+                 node="/xs:schema">
+
+    <jaxb:bindings node="//xs:complexType[@name='SerializationFormat']">
+      <jaxb:class ref="edu.mayo.ontology.taxonomies.krformat.SerializationFormat" />
+    </jaxb:bindings>
+
+    <jaxb:bindings node="//xs:simpleType[@name='SerializationFormat_Valueset']">
+      <jaxb:typesafeEnumClass ref="edu.mayo.ontology.taxonomies.krformat._20190801.SerializationFormat" />
+
+      <xjc:javaType name="edu.mayo.ontology.taxonomies.krformat._20190801.SerializationFormat"
+                    adapter="edu.mayo.ontology.taxonomies.krformat._20190801.SerializationFormat.Adapter"/>
+    </jaxb:bindings>
+
+  </jaxb:bindings>
+</jaxb:bindings>

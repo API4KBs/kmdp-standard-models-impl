@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxb:bindings xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns:annox="http://annox.dev.java.net"
+               xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+               xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
+               version="2.1"
+               jaxb:extensionBindingPrefixes="xjc annox">
+   <jaxb:bindings schemaLocation="surrogate.xsd" node="/xs:schema">
+      <jaxb:bindings node="xs:complexType[@name='KnowledgeAsset']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = KnowledgeAsset.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='KnowledgeArtifact']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = KnowledgeArtifact.class,  property = "_class" )</annox:annotate>
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonSubTypes( {@com.fasterxml.jackson.annotation.JsonSubTypes.Type( name = "PhysicalKnowledgeArtifact",  value = edu.mayo.kmdp.metadata.surrogate.PhysicalKnowledgeArtifact.class ),@com.fasterxml.jackson.annotation.JsonSubTypes.Type( name = "DigitalKnowledgeArtifact",  value = edu.mayo.kmdp.metadata.surrogate.DigitalKnowledgeArtifact.class ),@com.fasterxml.jackson.annotation.JsonSubTypes.Type( name = "ComputableKnowledgeArtifact",  value = edu.mayo.kmdp.metadata.surrogate.ComputableKnowledgeArtifact.class )})</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='InlinedRepresentation']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = InlinedRepresentation.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='KnowledgeResource']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = KnowledgeResource.class,  property = "_class" )</annox:annotate>
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonSubTypes( {@com.fasterxml.jackson.annotation.JsonSubTypes.Type( name = "KnowledgeAsset",  value = edu.mayo.kmdp.metadata.surrogate.KnowledgeAsset.class ),@com.fasterxml.jackson.annotation.JsonSubTypes.Type( name = "KnowledgeArtifact",  value = edu.mayo.kmdp.metadata.surrogate.KnowledgeArtifact.class ),@com.fasterxml.jackson.annotation.JsonSubTypes.Type( name = "PhysicalKnowledgeArtifact",  value = edu.mayo.kmdp.metadata.surrogate.PhysicalKnowledgeArtifact.class ),@com.fasterxml.jackson.annotation.JsonSubTypes.Type( name = "DigitalKnowledgeArtifact",  value = edu.mayo.kmdp.metadata.surrogate.DigitalKnowledgeArtifact.class ),@com.fasterxml.jackson.annotation.JsonSubTypes.Type( name = "ComputableKnowledgeArtifact",  value = edu.mayo.kmdp.metadata.surrogate.ComputableKnowledgeArtifact.class ),@com.fasterxml.jackson.annotation.JsonSubTypes.Type( name = "Collection",  value = edu.mayo.kmdp.metadata.surrogate.Collection.class )})</annox:annotate>
+         <annox:annotate target="class">@de.escalon.hypermedia.hydra.mapping.Expose( "http://omg.org/spec/API4KP/KnowledgeResource" )</annox:annotate>
+         <annox:annotate target="class">@de.escalon.hypermedia.hydra.mapping.Vocab( "#" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='Association']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = Association.class,  property = "_class" )</annox:annotate>
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonSubTypes( {@com.fasterxml.jackson.annotation.JsonSubTypes.Type( name = "Component",  value = edu.mayo.kmdp.metadata.surrogate.Component.class ),@com.fasterxml.jackson.annotation.JsonSubTypes.Type( name = "Derivative",  value = edu.mayo.kmdp.metadata.surrogate.Derivative.class ),@com.fasterxml.jackson.annotation.JsonSubTypes.Type( name = "Dependency",  value = edu.mayo.kmdp.metadata.surrogate.Dependency.class ),@com.fasterxml.jackson.annotation.JsonSubTypes.Type( name = "Variant",  value = edu.mayo.kmdp.metadata.surrogate.Variant.class ),@com.fasterxml.jackson.annotation.JsonSubTypes.Type( name = "Version",  value = edu.mayo.kmdp.metadata.surrogate.Version.class )})</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='ComputableKnowledgeArtifact']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = ComputableKnowledgeArtifact.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='Component']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = Component.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='Derivative']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = Derivative.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='Dependency']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = Dependency.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='Variant']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = Variant.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='Summary']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = Summary.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='Version']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = Version.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='Citation']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = Citation.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='Representation']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = Representation.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='SubLanguage']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = SubLanguage.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='Collection']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = Collection.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='PhysicalKnowledgeArtifact']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = PhysicalKnowledgeArtifact.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='DigitalKnowledgeArtifact']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = DigitalKnowledgeArtifact.class,  property = "_class" )</annox:annotate>
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonSubTypes( {@com.fasterxml.jackson.annotation.JsonSubTypes.Type( name = "ComputableKnowledgeArtifact",  value = edu.mayo.kmdp.metadata.surrogate.ComputableKnowledgeArtifact.class )})</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='Policy']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = Policy.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='Publication']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = Publication.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='Party']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = Party.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+   </jaxb:bindings>
+</jaxb:bindings>

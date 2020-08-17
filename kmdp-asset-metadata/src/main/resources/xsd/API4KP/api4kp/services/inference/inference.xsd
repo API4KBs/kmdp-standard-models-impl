@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.omg.org/spec/API4KP/1.0/services/inference"
+           xmlns:xmi="http://www.omg.org/spec/XMI/20131001"
+           xmlns:ns1="http://www.omg.org/spec/API4KP/1.0/services"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           targetNamespace="http://www.omg.org/spec/API4KP/1.0/services/inference">
+   <xs:import namespace="http://www.omg.org/spec/API4KP/1.0/services"
+              schemaLocation="../services.xsd"/>
+   <xs:element name="dataConceptDefinition" type="DataConceptDefinition"/>
+   <xs:complexType xmi:id="_U_m2ULHTEeipguRxRn1Vyw" name="DataConceptDefinition">
+      <xs:group ref="DataConceptDefinition.content"/>
+      <xs:attributeGroup ref="DataConceptDefinition.attrs"/>
+   </xs:complexType>
+   <xs:group name="DataConceptDefinition.content">
+      <xs:sequence>
+         <xs:element xmlns:tns="http://www.omg.org/spec/API4KP/1.0/services"
+                     name="derivation"
+                     type="tns:KnowledgeCarrier"
+                     minOccurs="0"
+                     maxOccurs="1"/>
+      </xs:sequence>
+   </xs:group>
+   <xs:attributeGroup name="DataConceptDefinition.attrs">
+      <xs:attribute name="name" type="xs:string"/>
+      <xs:attribute name="datatype" type="xs:anyURI"/>
+      <xs:attribute name="concept" type="xs:anyURI"/>
+      <xs:attribute name="provided" type="xs:boolean"/>
+      <xs:attribute name="optional" type="xs:boolean"/>
+   </xs:attributeGroup>
+</xs:schema>

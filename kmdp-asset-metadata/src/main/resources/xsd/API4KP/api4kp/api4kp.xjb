@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxb:bindings xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns:annox="http://annox.dev.java.net"
+               xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+               xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
+               version="2.1"
+               jaxb:extensionBindingPrefixes="xjc annox">
+   <jaxb:bindings schemaLocation="api4kp.xsd" node="/xs:schema">
+      <jaxb:bindings node="xs:complexType[@name='API4KPManifest']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = API4KPManifest.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+   </jaxb:bindings>
+</jaxb:bindings>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.omg.org/spec/API4KP/1.0/services/inference/resources"
+           xmlns:annox="http://annox.dev.java.net"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+           xmlns:xmi="http://www.omg.org/spec/XMI/20131001"
+           xmlns:pns="http://www.omg.org/spec/API4KP/1.0/services/inference"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="qualified"
+           targetNamespace="http://www.omg.org/spec/API4KP/1.0/services/inference/resources"
+           jaxb:extensionBindingPrefixes="annox"
+           jaxb:version="2.1">
+   <xs:import namespace="http://www.omg.org/spec/API4KP/1.0/services/inference"
+              schemaLocation="inference.xsd"/>
+   <xs:element name="dataConceptDefinition">
+      <xs:complexType>
+         <xs:annotation>
+            <xs:appinfo>
+               <annox:annotateClass>@javax.xml.bind.annotation.XmlRootElement(name="dataConceptDefinition", namespace="http://www.omg.org/spec/API4KP/1.0/services/inference")</annox:annotateClass>
+            </xs:appinfo>
+         </xs:annotation>
+         <xs:complexContent>
+            <xs:extension base="pns:DataConceptDefinition"/>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

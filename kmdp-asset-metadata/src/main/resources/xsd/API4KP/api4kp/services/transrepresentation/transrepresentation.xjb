@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxb:bindings xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns:annox="http://annox.dev.java.net"
+               xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+               xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
+               version="2.1"
+               jaxb:extensionBindingPrefixes="xjc annox">
+   <jaxb:bindings schemaLocation="transrepresentation.xsd" node="/xs:schema">
+      <jaxb:bindings node="xs:complexType[@name='Transrepresentator']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = Transrepresentator.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='TransrepresentationMethod']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = TransrepresentationMethod.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='Transrepresentation']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = Transrepresentation.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='TransrepresentationOperator']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = TransrepresentationOperator.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='Deserializer']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = Deserializer.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='DeserializationOperator']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = DeserializationOperator.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='Validator']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = Validator.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='Detector']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = Detector.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='ValidationOperator']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = ValidationOperator.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='DetectionOperator']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = DetectionOperator.class,  property = "_class" )</annox:annotate>
+      </jaxb:bindings>
+   </jaxb:bindings>
+</jaxb:bindings>

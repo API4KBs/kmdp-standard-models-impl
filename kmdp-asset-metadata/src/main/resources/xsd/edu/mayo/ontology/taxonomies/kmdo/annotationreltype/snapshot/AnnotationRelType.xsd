@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="AnnotationRelTypes"
+           targetNamespace="https://ontology.mayo.edu/taxonomies/KMDO/AnnotationRelType/SNAPSHOT/"
+           elementFormDefault="qualified"
+           xmlns="https://ontology.mayo.edu/taxonomies/KMDO/AnnotationRelType/SNAPSHOT/"
+           xmlns:id="http://www.omg.org/spec/API4KP/1.0/identifiers"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.omg.org/spec/API4KP/1.0/identifiers"/>
+
+    <xs:complexType name="AnnotationRelType">
+      <xs:complexContent>
+        <xs:extension base="id:ConceptIdentifier">
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+
+    <xs:simpleType name="AnnotationRelType_Valueset">
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="https://www.omg.org/spec/LCC/Languages/LanguageRepresentation/isIdentifiedBy"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/is-about"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/defined-in-terms-of"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kmdo/primary-subject"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/archetypes"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/captures"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/has-exemplar"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/has-subject"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kmdo/secondary-subject"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/knowledge-representation-of"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/defines"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kmdo/focus"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/function-of"/>
+      </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

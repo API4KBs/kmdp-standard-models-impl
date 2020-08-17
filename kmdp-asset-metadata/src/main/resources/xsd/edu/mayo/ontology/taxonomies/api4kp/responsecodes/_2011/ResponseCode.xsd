@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ResponseCodes"
+           targetNamespace="https://ontology.mayo.edu/taxonomies/API4KP/ResponseCodes/2011/"
+           elementFormDefault="qualified"
+           xmlns="https://ontology.mayo.edu/taxonomies/API4KP/ResponseCodes/2011/"
+           xmlns:id="http://www.omg.org/spec/API4KP/1.0/identifiers"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.omg.org/spec/API4KP/1.0/identifiers"/>
+
+    <xs:complexType name="ResponseCode">
+      <xs:complexContent>
+        <xs:extension base="id:ConceptIdentifier">
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+
+    <xs:simpleType name="ResponseCode_Valueset">
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#IMUsed"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#Forbidden"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#GatewayTimeout"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#NotModified"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#Processing"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#MethodNotAllowed"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#HTTPVersionNotSupported"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#Found"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#UnprocessableEntity"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#RequestedRangeNotSatisfiable"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#ExpectationFailed"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#ProxyAuthenticationRequired"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#NoContent"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#BadGateway"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#ServiceUnavailable"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#PaymentRequired"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#MovedPermanently"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#RequestURITooLong"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#NotImplemented"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#MultiStatus"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#NotFound"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#PartialContent"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#Conflict"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#UseProxy"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#RequestEntityTooLarge"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#NotAcceptable"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#InternalServerError"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#NotExtended"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#Unauthorized"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#ResetContent"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#Accepted"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#PreconditionFailed"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#LengthRequired"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#OK"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#MultipleChoices"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#RequestTimeout"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#Created"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#Continue"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#Locked"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#NonAuthoritativeInformation"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#Gone"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#InsufficientStorage"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#FailedDependency"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#BadRequest"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#UpgradeRequired"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#TemporaryRedirect"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#VariantAlsoNegotiates"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#UnsupportedMediaType"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#Reserved"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#SwitchingProtocols"/>
+        <xs:enumeration value="http://www.w3.org/2011/http-statusCodes#SeeOther"/>
+      </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://kmdp.mayo.edu/metadata/surrogate/resources"
+           xmlns:annox="http://annox.dev.java.net"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+           xmlns:xmi="http://www.omg.org/spec/XMI/20131001"
+           xmlns:pns="http://kmdp.mayo.edu/metadata/surrogate"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="qualified"
+           targetNamespace="http://kmdp.mayo.edu/metadata/surrogate/resources"
+           jaxb:extensionBindingPrefixes="annox"
+           jaxb:version="2.1">
+   <xs:import namespace="http://kmdp.mayo.edu/metadata/surrogate"
+              schemaLocation="surrogate.xsd"/>
+   <xs:element name="knowledgeAsset">
+      <xs:complexType>
+         <xs:annotation>
+            <xs:appinfo>
+               <annox:annotateClass>@javax.xml.bind.annotation.XmlRootElement(name="knowledgeAsset", namespace="http://kmdp.mayo.edu/metadata/surrogate")</annox:annotateClass>
+            </xs:appinfo>
+         </xs:annotation>
+         <xs:complexContent>
+            <xs:extension base="pns:KnowledgeAsset"/>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="computableKnowledgeArtifact">
+      <xs:complexType>
+         <xs:annotation>
+            <xs:appinfo>
+               <annox:annotateClass>@javax.xml.bind.annotation.XmlRootElement(name="computableKnowledgeArtifact", namespace="http://kmdp.mayo.edu/metadata/surrogate")</annox:annotateClass>
+            </xs:appinfo>
+         </xs:annotation>
+         <xs:complexContent>
+            <xs:extension base="pns:ComputableKnowledgeArtifact"/>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

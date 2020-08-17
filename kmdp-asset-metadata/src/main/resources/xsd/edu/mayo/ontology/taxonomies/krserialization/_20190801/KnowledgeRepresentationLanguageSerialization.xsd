@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KnowledgeRepresentationLanguageSerializations"
+           targetNamespace="https://ontology.mayo.edu/taxonomies/KRSerialization/20190801/"
+           elementFormDefault="qualified"
+           xmlns="https://ontology.mayo.edu/taxonomies/KRSerialization/20190801/"
+           xmlns:id="http://www.omg.org/spec/API4KP/1.0/identifiers"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.omg.org/spec/API4KP/1.0/identifiers"/>
+
+    <xs:complexType name="KnowledgeRepresentationLanguageSerialization">
+      <xs:complexContent>
+        <xs:extension base="id:ConceptIdentifier">
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+
+    <xs:simpleType name="KnowledgeRepresentationLanguageSerialization_Valueset">
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="https://www.iso.org/standard/66249/clif"/>
+        <xs:enumeration value="https://www.w3.org/TR/owl2-manchester-syntax/"/>
+        <xs:enumeration value="https://www.w3.org/TR/sparql11-query/#grammar"/>
+        <xs:enumeration value="http://www.omg.org/spec/CMMN/20151109/MODEL"/>
+        <xs:enumeration value="http://kmdp.mayo.edu/metadata/surrogate"/>
+        <xs:enumeration value="http://kmdp.mayo.edu/metadata/annotations"/>
+        <xs:enumeration value="http://kmdp.mayo.edu/metadata/surrogate/json"/>
+        <xs:enumeration value="https://swagger.io/specification/2-0/json"/>
+        <xs:enumeration value="http://www.w3.org/2001/XMLSchema"/>
+        <xs:enumeration value="http://www.omg.org/spec/DMN/20180521/MODEL/"/>
+        <xs:enumeration value="https://www.w3.org/TR/2012/REC-owl2-syntax-20121211/"/>
+        <xs:enumeration value="https://cql.hl7.org/2018May/grammar"/>
+        <xs:enumeration value="http://www.omg.org/spec/API4KP/1.0/services/json"/>
+        <xs:enumeration value="https://www.iso.org/standard/66249/cgif"/>
+        <xs:enumeration value="https://www.w3.org/TR/turtle/"/>
+        <xs:enumeration value="http://hl7.org/fhir/rdf"/>
+        <xs:enumeration value="urn:hl7-org:knowledgeartifact:r1"/>
+        <xs:enumeration value="http://www.w3.org/2003/05/owl-xml"/>
+        <xs:enumeration value="https://www.w3.org/2000/07/rdf.xsd"/>
+        <xs:enumeration value="http://hl7.org/fhir"/>
+        <xs:enumeration value="https://swagger.io/specification/2-0/yaml"/>
+        <xs:enumeration value="http://www.omg.org/spec/API4KP/1.0/services"/>
+        <xs:enumeration value="urn:IEEE-1671:2010:Common"/>
+        <xs:enumeration value="http://www.omg.org/spec/DMN/20151101/dmn.xsd"/>
+        <xs:enumeration value="http://hl7.org/fhir/json"/>
+        <xs:enumeration value="http://www.omg.org/spec/BPMN/20100524/MODEL"/>
+        <xs:enumeration value="urn:hl7-org:elm:r1"/>
+      </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

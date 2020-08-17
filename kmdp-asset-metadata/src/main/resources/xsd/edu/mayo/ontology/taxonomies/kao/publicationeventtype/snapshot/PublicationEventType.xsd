@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="PublicationEventTypes"
+           targetNamespace="https://ontology.mayo.edu/taxonomies/KAO/PublicationEventType/SNAPSHOT/"
+           elementFormDefault="qualified"
+           xmlns="https://ontology.mayo.edu/taxonomies/KAO/PublicationEventType/SNAPSHOT/"
+           xmlns:id="http://www.omg.org/spec/API4KP/1.0/identifiers"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.omg.org/spec/API4KP/1.0/identifiers"/>
+
+    <xs:complexType name="PublicationEventType">
+      <xs:complexContent>
+        <xs:extension base="id:ConceptIdentifier">
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+
+    <xs:simpleType name="PublicationEventType_Valueset">
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kmdo/KnowledgeCreationActivity"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kmdo/KnowledgeAuthoringActivity"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kmdo/KnowledgePublicationActivity"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kmdo/KnowledgeApprovalActivity"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kmdo/KnowledgeEditingActivity"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kmdo/KnowledgeReviewActivity"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp-kmdo/KnowledgeRevisionActivity"/>
+      </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

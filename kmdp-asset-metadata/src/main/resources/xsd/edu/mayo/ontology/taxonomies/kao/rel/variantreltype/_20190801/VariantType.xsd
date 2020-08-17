@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="VariantTypes"
+           targetNamespace="https://ontology.mayo.edu/taxonomies/KAO/Rel/VariantRelType/20190801/"
+           elementFormDefault="qualified"
+           xmlns="https://ontology.mayo.edu/taxonomies/KAO/Rel/VariantRelType/20190801/"
+           xmlns:id="http://www.omg.org/spec/API4KP/1.0/identifiers"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.omg.org/spec/API4KP/1.0/identifiers"/>
+
+    <xs:complexType name="VariantType">
+      <xs:complexContent>
+        <xs:extension base="id:ConceptIdentifier">
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+
+    <xs:simpleType name="VariantType_Valueset">
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/variant-of"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/transwordation-of"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/adaptation-of"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/translation-of"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/rearrangement-of"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/transcodification-of"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/transliteration-of"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/transcription-of"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/compression-of"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/linguistic-adaptation-of"/>
+        <xs:enumeration value="https://www.omg.org/spec/API4KP/api4kp/transcreation-of"/>
+      </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

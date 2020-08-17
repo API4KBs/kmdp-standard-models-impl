@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://kmdp.mayo.edu/metadata/annotations"
+           xmlns:xmi="http://www.omg.org/spec/XMI/20131001"
+           xmlns:ns1="http://kmdp.mayo.edu/metadata/surrogate"
+           xmlns:ns2="http://www.omg.org/spec/API4KP/1.0/identifiers"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           targetNamespace="http://kmdp.mayo.edu/metadata/annotations">
+   <xs:import namespace="http://kmdp.mayo.edu/metadata/surrogate"
+              schemaLocation="../surrogate.xsd"/>
+   <xs:import namespace="http://www.omg.org/spec/API4KP/1.0/identifiers"
+              schemaLocation="../../../API4KP/api4kp/identifiers/identifiers.xsd"/>
+   <xs:element name="annotation" type="Annotation"/>
+   <xs:complexType xmi:id="_XqErEDF3Eei6yfLjYxGyzQ" name="Annotation" abstract="true">
+      <xs:annotation>
+         <xs:appinfo>
+            <subTypes xmlns="">
+               <subType name="SimpleAnnotation" type="tns:SimpleAnnotation" about=""/>
+               <subType name="ComplexAnnotation" type="tns:ComplexAnnotation" about=""/>
+               <subType name="MultiwordAnnotation" type="tns:MultiwordAnnotation" about=""/>
+               <subType name="BasicAnnotation" type="tns:BasicAnnotation" about=""/>
+               <subType name="DatatypeAnnotation" type="tns:DatatypeAnnotation" about=""/>
+            </subTypes>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:group ref="Annotation.content"/>
+      <xs:attributeGroup ref="Annotation.attrs"/>
+   </xs:complexType>
+   <xs:group name="Annotation.content">
+      <xs:sequence>
+         <xs:element xmlns:tns="http://www.omg.org/spec/API4KP/1.0/identifiers"
+                     name="rel"
+                     minOccurs="0"
+                     maxOccurs="1"
+                     type="tns:ConceptIdentifier"/>
+         <xs:element xmlns:tns="http://www.omg.org/spec/API4KP/1.0/identifiers"
+                     name="rol"
+                     minOccurs="0"
+                     maxOccurs="1"
+                     type="tns:ConceptIdentifier"/>
+      </xs:sequence>
+   </xs:group>
+   <xs:attributeGroup name="Annotation.attrs"/>
+   <xs:element name="simpleAnnotation" type="SimpleAnnotation"/>
+   <xs:complexType xmi:id="_Z3b6gDF3Eei6yfLjYxGyzQ" name="SimpleAnnotation">
+      <xs:complexContent>
+         <xs:extension xmlns:tns="http://kmdp.mayo.edu/metadata/annotations" base="tns:Annotation">
+            <xs:group ref="SimpleAnnotation.content"/>
+            <xs:attributeGroup ref="SimpleAnnotation.attrs"/>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:group name="SimpleAnnotation.content">
+      <xs:sequence>
+         <xs:element xmlns:tns="http://www.omg.org/spec/API4KP/1.0/identifiers"
+                     name="expr"
+                     minOccurs="1"
+                     maxOccurs="1"
+                     type="tns:ConceptIdentifier"/>
+      </xs:sequence>
+   </xs:group>
+   <xs:attributeGroup name="SimpleAnnotation.attrs"/>
+   <xs:element name="complexAnnotation" type="ComplexAnnotation"/>
+   <xs:complexType xmi:id="_035asDF4Eei6yfLjYxGyzQ" name="ComplexAnnotation">
+      <xs:complexContent>
+         <xs:extension xmlns:tns="http://kmdp.mayo.edu/metadata/annotations" base="tns:Annotation">
+            <xs:group ref="ComplexAnnotation.content"/>
+            <xs:attributeGroup ref="ComplexAnnotation.attrs"/>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:group name="ComplexAnnotation.content">
+      <xs:sequence>
+         <xs:element xmlns:tns="http://kmdp.mayo.edu/metadata/surrogate"
+                     name="expr"
+                     type="tns:InlinedRepresentation"
+                     minOccurs="1"
+                     maxOccurs="1"/>
+      </xs:sequence>
+   </xs:group>
+   <xs:attributeGroup name="ComplexAnnotation.attrs"/>
+   <xs:element name="multiwordAnnotation" type="MultiwordAnnotation"/>
+   <xs:complexType xmi:id="_qoCuwDPZEei15p--LK6pPw" name="MultiwordAnnotation">
+      <xs:complexContent>
+         <xs:extension xmlns:tns="http://kmdp.mayo.edu/metadata/annotations" base="tns:Annotation">
+            <xs:group ref="MultiwordAnnotation.content"/>
+            <xs:attributeGroup ref="MultiwordAnnotation.attrs"/>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:group name="MultiwordAnnotation.content">
+      <xs:sequence>
+         <xs:element xmlns:tns="http://www.omg.org/spec/API4KP/1.0/identifiers"
+                     name="expr"
+                     minOccurs="2"
+                     maxOccurs="unbounded"
+                     type="tns:ConceptIdentifier"/>
+      </xs:sequence>
+   </xs:group>
+   <xs:attributeGroup name="MultiwordAnnotation.attrs"/>
+   <xs:element name="basicAnnotation" type="BasicAnnotation"/>
+   <xs:complexType xmi:id="_In8PIK7rEeiZ-ppVKGwvXw" name="BasicAnnotation">
+      <xs:complexContent>
+         <xs:extension xmlns:tns="http://kmdp.mayo.edu/metadata/annotations" base="tns:Annotation">
+            <xs:group ref="BasicAnnotation.content"/>
+            <xs:attributeGroup ref="BasicAnnotation.attrs"/>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:group name="BasicAnnotation.content">
+      <xs:sequence/>
+   </xs:group>
+   <xs:attributeGroup name="BasicAnnotation.attrs">
+      <xs:attribute name="expr" use="required" type="xs:anyURI"/>
+   </xs:attributeGroup>
+   <xs:element name="datatypeAnnotation" type="DatatypeAnnotation"/>
+   <xs:complexType xmi:id="_0H-WcPTEEeiTK_nCuAXrcA" name="DatatypeAnnotation">
+      <xs:complexContent>
+         <xs:extension xmlns:tns="http://kmdp.mayo.edu/metadata/annotations" base="tns:Annotation">
+            <xs:group ref="DatatypeAnnotation.content"/>
+            <xs:attributeGroup ref="DatatypeAnnotation.attrs"/>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:group name="DatatypeAnnotation.content">
+      <xs:sequence/>
+   </xs:group>
+   <xs:attributeGroup name="DatatypeAnnotation.attrs">
+      <xs:attribute name="value" use="required" type="xs:anySimpleType"/>
+   </xs:attributeGroup>
+   <xs:element name="applicability" type="Applicability"/>
+   <xs:complexType xmi:id="_JaB78LuQEem8-pQuMOrJQw"
+                   name="Applicability"
+                   abstract="true">
+      <xs:annotation>
+         <xs:appinfo>
+            <subTypes xmlns="">
+               <subType name="SimpleApplicability" type="tns:SimpleApplicability" about=""/>
+               <subType name="ComplexApplicability"
+                        type="tns:ComplexApplicability"
+                        about=""/>
+            </subTypes>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:group ref="Applicability.content"/>
+      <xs:attributeGroup ref="Applicability.attrs"/>
+   </xs:complexType>
+   <xs:group name="Applicability.content">
+      <xs:sequence/>
+   </xs:group>
+   <xs:attributeGroup name="Applicability.attrs"/>
+   <xs:element name="simpleApplicability" type="SimpleApplicability"/>
+   <xs:complexType xmi:id="_M-lAwLuQEem8-pQuMOrJQw" name="SimpleApplicability">
+      <xs:complexContent>
+         <xs:extension xmlns:tns="http://kmdp.mayo.edu/metadata/annotations"
+                       base="tns:Applicability">
+            <xs:group ref="SimpleApplicability.content"/>
+            <xs:attributeGroup ref="SimpleApplicability.attrs"/>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:group name="SimpleApplicability.content">
+      <xs:sequence>
+         <xs:element xmlns:tns="http://www.omg.org/spec/API4KP/1.0/identifiers"
+                     name="situation"
+                     minOccurs="1"
+                     maxOccurs="1"
+                     type="tns:ConceptIdentifier"/>
+      </xs:sequence>
+   </xs:group>
+   <xs:attributeGroup name="SimpleApplicability.attrs"/>
+   <xs:element name="complexApplicability" type="ComplexApplicability"/>
+   <xs:complexType xmi:id="_a--ZYLuQEem8-pQuMOrJQw" name="ComplexApplicability">
+      <xs:complexContent>
+         <xs:extension xmlns:tns="http://kmdp.mayo.edu/metadata/annotations"
+                       base="tns:Applicability">
+            <xs:group ref="ComplexApplicability.content"/>
+            <xs:attributeGroup ref="ComplexApplicability.attrs"/>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:group name="ComplexApplicability.content">
+      <xs:sequence>
+         <xs:element xmlns:tns="http://kmdp.mayo.edu/metadata/surrogate"
+                     name="situation"
+                     type="tns:InlinedRepresentation"
+                     minOccurs="1"
+                     maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:group>
+   <xs:attributeGroup name="ComplexApplicability.attrs"/>
+</xs:schema>
