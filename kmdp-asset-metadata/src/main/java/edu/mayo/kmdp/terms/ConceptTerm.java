@@ -1,7 +1,7 @@
 package edu.mayo.kmdp.terms;
 
 import edu.mayo.kmdp.id.Term;
-import edu.mayo.kmdp.id.helper.DatatypeHelper;
+import edu.mayo.kmdp.id.helper.LegacyDatatypeHelper;
 import java.net.URI;
 import java.util.List;
 import java.util.UUID;
@@ -77,12 +77,12 @@ public interface ConceptTerm<T extends Term> extends Term, org.omg.spec.api4kp._
 
   @Override
   default org.omg.spec.api4kp._1_0.identifiers.QualifiedIdentifier asQualified() {
-    return DatatypeHelper.toQualifiedIdentifier( this.getConceptId() );
+    return LegacyDatatypeHelper.toQualifiedIdentifier( this.getConceptId() );
   }
 
   @Override
   default org.omg.spec.api4kp._1_0.identifiers.ConceptIdentifier asConcept() {
-    return DatatypeHelper.toConceptIdentifier( this );
+    return LegacyDatatypeHelper.toConceptIdentifier( this );
   }
 
   @Override

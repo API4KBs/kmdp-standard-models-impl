@@ -13,8 +13,8 @@
  */
 package edu.mayo.kmdp;
 
-import static edu.mayo.kmdp.id.helper.DatatypeHelper.name;
-import static edu.mayo.kmdp.id.helper.DatatypeHelper.uri;
+import static edu.mayo.kmdp.id.helper.LegacyDatatypeHelper.name;
+import static edu.mayo.kmdp.id.helper.LegacyDatatypeHelper.uri;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;

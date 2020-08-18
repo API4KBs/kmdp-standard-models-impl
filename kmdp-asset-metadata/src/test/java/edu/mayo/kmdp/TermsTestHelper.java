@@ -1,6 +1,6 @@
 package edu.mayo.kmdp;
 
-import static edu.mayo.kmdp.id.helper.DatatypeHelper.ns;
+import static edu.mayo.kmdp.id.helper.LegacyDatatypeHelper.ns;
 
 import java.net.URI;
 import org.omg.spec.api4kp._1_0.identifiers.ConceptIdentifier;

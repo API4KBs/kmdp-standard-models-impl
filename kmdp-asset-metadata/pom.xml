@@ -77,6 +77,11 @@
       <artifactId>jaxb2-basics-runtime</artifactId>
     </dependency>
 
+    <dependency>
+      <groupId>edu.mayo.kmdp</groupId>
+      <artifactId>kmdp-datatype</artifactId>
+    </dependency>
+
 
   </dependencies>
 

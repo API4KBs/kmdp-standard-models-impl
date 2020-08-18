@@ -5,7 +5,7 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import edu.mayo.kmdp.id.Term;
-import edu.mayo.kmdp.id.helper.DatatypeHelper;
+import edu.mayo.kmdp.id.helper.LegacyDatatypeHelper;
 import edu.mayo.kmdp.series.Series;
 import edu.mayo.kmdp.series.Versionable;
 import edu.mayo.kmdp.util.NameUtils;
@@ -37,7 +37,7 @@ public interface URITermsJsonAdapter {
         gen.writeNull();
         return;
       }
-      Optional<String> uri = DatatypeHelper.encodeConcept(v);
+      Optional<String> uri = LegacyDatatypeHelper.encodeConcept(v);
       if(uri.isPresent()) {
         gen.writeString(uri.get());
       } else {

@@ -15,7 +15,7 @@
  */
 package edu.mayo.kmdp;
 
-import static edu.mayo.kmdp.id.helper.DatatypeHelper.uri;
+import static edu.mayo.kmdp.id.helper.LegacyDatatypeHelper.uri;
 import static edu.mayo.ontology.taxonomies.iso639_2_languagecodes.LanguageSeries.English;
 import static edu.mayo.ontology.taxonomies.kao.knowledgeassetrole.KnowledgeAssetRoleSeries.Operational_Concept_Definition;
 

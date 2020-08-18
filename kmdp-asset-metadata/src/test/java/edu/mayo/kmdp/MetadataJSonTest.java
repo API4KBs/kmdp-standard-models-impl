@@ -15,7 +15,7 @@
  */
 package edu.mayo.kmdp;
 
-import static edu.mayo.kmdp.id.helper.DatatypeHelper.uri;
+import static edu.mayo.kmdp.id.helper.LegacyDatatypeHelper.uri;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -38,7 +38,6 @@ import edu.mayo.kmdp.metadata.surrogate.Variant;
 import edu.mayo.kmdp.metadata.surrogate.Version;
 import edu.mayo.kmdp.util.JSonUtil;
 import edu.mayo.kmdp.util.Util;
-import edu.mayo.kmdp.TermsTestHelper;
 import edu.mayo.ontology.taxonomies.iso639_2_languagecodes.LanguageSeries;
 import edu.mayo.ontology.taxonomies.kao.knowledgeartifactcategory.KnowledgeArtifactCategorySeries;
 import edu.mayo.ontology.taxonomies.kao.knowledgeassetcategory.KnowledgeAssetCategorySeries;

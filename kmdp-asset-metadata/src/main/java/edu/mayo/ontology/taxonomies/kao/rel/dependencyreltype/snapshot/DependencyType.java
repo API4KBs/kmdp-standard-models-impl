@@ -1,15 +1,16 @@
 package edu.mayo.ontology.taxonomies.kao.rel.dependencyreltype.snapshot;
 
-import static edu.mayo.kmdp.id.helper.DatatypeHelper.indexByUUID;
-import static edu.mayo.kmdp.id.helper.DatatypeHelper.resolveAliases;
-import static edu.mayo.kmdp.id.helper.DatatypeHelper.resolveTerm;
+import static edu.mayo.kmdp.id.helper.LegacyDatatypeHelper.indexByUUID;
+import static edu.mayo.kmdp.id.helper.LegacyDatatypeHelper.resolveAliases;
+import static edu.mayo.kmdp.id.helper.LegacyDatatypeHelper.resolveTerm;
 
 import edu.mayo.kmdp.id.Term;
 import edu.mayo.kmdp.id.VersionedIdentifier;
 import edu.mayo.kmdp.series.Series;
 import edu.mayo.kmdp.terms.ConceptTerm;
 import edu.mayo.kmdp.terms.TermDescription;
-import edu.mayo.kmdp.terms.impl.model.TermImpl;
+import edu.mayo.kmdp.terms.adapters.xml.LegacyTermsXMLAdapter;
+import edu.mayo.kmdp.terms.impl.model.LegacyTermImpl;
 import edu.mayo.kmdp.util.DateTimeUtil;
 import edu.mayo.ontology.taxonomies.kao.rel.dependencyreltype.DependencyTypeSeries;
 import java.net.URI;
@@ -108,7 +109,7 @@ public enum DependencyType implements edu.mayo.ontology.taxonomies.kao.rel.depen
       final String displayName, final String referent,
       final Term[] ancestors,
       final Term[] closure) {
-    this.description = new TermImpl(conceptId, conceptUUID, code, additionalCodes, displayName,
+    this.description = new LegacyTermImpl(conceptId, conceptUUID, code, additionalCodes, displayName,
         referent, ancestors, closure);
     this.series = series;
   }
@@ -157,8 +158,8 @@ public enum DependencyType implements edu.mayo.ontology.taxonomies.kao.rel.depen
     return series;
   }
 
-  public static class Adapter extends edu.mayo.kmdp.terms.adapters.xml.TermsXMLAdapter {
-    public static final edu.mayo.kmdp.terms.adapters.xml.TermsXMLAdapter instance = new Adapter();
+  public static class Adapter extends LegacyTermsXMLAdapter {
+    public static final LegacyTermsXMLAdapter instance = new Adapter();
     protected Term[] getValues() { return values(); }
 	}
 

@@ -18,7 +18,7 @@ package edu.mayo.kmdp.id.adapter;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import edu.mayo.kmdp.id.VersionedIdentifier;
-import edu.mayo.kmdp.id.helper.DatatypeHelper;
+import edu.mayo.kmdp.id.helper.LegacyDatatypeHelper;
 import java.net.URI;
 
 public interface URIId extends VersionedIdentifier {
@@ -30,13 +30,13 @@ public interface URIId extends VersionedIdentifier {
   @Override
   @JsonIgnore
   default String getVersion() {
-    return DatatypeHelper.versionOf(this);
+    return LegacyDatatypeHelper.versionOf(this);
   }
 
   @Override
   @JsonIgnore
   default String getTag() {
-    return DatatypeHelper.tagOf(getUri());
+    return LegacyDatatypeHelper.tagOf(getUri());
   }
 
   default String toStringId() {

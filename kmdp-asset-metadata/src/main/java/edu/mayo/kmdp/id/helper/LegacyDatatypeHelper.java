@@ -49,11 +49,11 @@ import org.omg.spec.api4kp._1_0.identifiers.VersionTagType;
 
 
 @Deprecated
-public class DatatypeHelper {
+public class LegacyDatatypeHelper {
 
   private static final String BASE_UUID_URN = "urn:uuid:";
 
-  protected DatatypeHelper() {
+  protected LegacyDatatypeHelper() {
 
   }
 
@@ -361,7 +361,7 @@ public class DatatypeHelper {
         .withId(URIUtil.normalizeURI(base))
         .withLabel(label)
         .withTag(base.getFragment())
-        .withVersion(DatatypeHelper.versionOf(schemeURI));
+        .withVersion(LegacyDatatypeHelper.versionOf(schemeURI));
   }
 
 

@@ -15,7 +15,7 @@
  */
 package edu.mayo.kmdp.id;
 
-import static edu.mayo.kmdp.id.helper.DatatypeHelper.toQualifiedIdentifier;
+import static edu.mayo.kmdp.id.helper.LegacyDatatypeHelper.toQualifiedIdentifier;
 
 import edu.mayo.kmdp.id.adapter.QualifiedId;
 import java.io.Serializable;

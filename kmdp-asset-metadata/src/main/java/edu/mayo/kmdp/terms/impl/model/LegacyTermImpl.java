@@ -8,18 +8,18 @@ import java.util.List;
 import java.util.UUID;
 import org.omg.spec.api4kp._1_0.identifiers.ConceptIdentifier;
 
-public class TermImpl extends ConceptIdentifier implements TermDescription {
+public class LegacyTermImpl extends ConceptIdentifier implements TermDescription {
 
   private List<String> tags;
 
   private Term[] ancestors;
   private Term[] ancestorsClosure;
 
-  TermImpl() {
+  LegacyTermImpl() {
 
   }
 
-  public TermImpl(final String conceptId, final String conceptUUID, final String code,
+  public LegacyTermImpl(final String conceptId, final String conceptUUID, final String code,
       final List<String> additionalCodes, final String displayName, final String referent,
       final Term[] ancestors, final Term[] closure) {
     this.ref = Util.isEmpty(referent) ? null : URI.create(referent);

@@ -1,14 +1,15 @@
 package edu.mayo.ontology.taxonomies.kao.knowledgeprocessingtechnique;
 
-import static edu.mayo.kmdp.id.helper.DatatypeHelper.indexByUUID;
-import static edu.mayo.kmdp.id.helper.DatatypeHelper.resolveAliases;
-import static edu.mayo.kmdp.id.helper.DatatypeHelper.resolveTerm;
+import static edu.mayo.kmdp.id.helper.LegacyDatatypeHelper.indexByUUID;
+import static edu.mayo.kmdp.id.helper.LegacyDatatypeHelper.resolveAliases;
+import static edu.mayo.kmdp.id.helper.LegacyDatatypeHelper.resolveTerm;
 
 import edu.mayo.kmdp.id.Term;
 import edu.mayo.kmdp.id.VersionedIdentifier;
 import edu.mayo.kmdp.series.Series;
 import edu.mayo.kmdp.terms.ConceptTerm;
 import edu.mayo.kmdp.terms.TermDescription;
+import edu.mayo.kmdp.terms.adapters.xml.LegacyTermsXMLAdapter;
 import java.net.URI;
 import java.util.Arrays;
 import java.util.Date;
@@ -159,8 +160,8 @@ public enum KnowledgeProcessingTechniqueSeries implements KnowledgeProcessingTec
   }
 
 
-  public static class Adapter extends edu.mayo.kmdp.terms.adapters.xml.TermsXMLAdapter {
-    public static final edu.mayo.kmdp.terms.adapters.xml.TermsXMLAdapter instance = new KnowledgeProcessingTechniqueSeries.Adapter();
+  public static class Adapter extends LegacyTermsXMLAdapter {
+    public static final LegacyTermsXMLAdapter instance = new KnowledgeProcessingTechniqueSeries.Adapter();
     protected KnowledgeProcessingTechniqueSeries[] getValues() { return values(); }
   }
 

@@ -16,19 +16,19 @@
 package edu.mayo.kmdp.terms.adapters.xml;
 
 import edu.mayo.kmdp.id.Term;
-import edu.mayo.kmdp.id.helper.DatatypeHelper;
+import edu.mayo.kmdp.id.helper.LegacyDatatypeHelper;
 import edu.mayo.kmdp.series.Series;
 import edu.mayo.kmdp.util.StreamUtil;
 import java.util.Arrays;
 import java.util.Optional;
 import org.omg.spec.api4kp._1_0.identifiers.NamespaceIdentifier;
 
-public abstract class TermsXMLAdapter extends
+public abstract class LegacyTermsXMLAdapter extends
     javax.xml.bind.annotation.adapters.XmlAdapter<org.omg.spec.api4kp._1_0.identifiers.ConceptIdentifier, Term> {
 
   @Override
   public Term unmarshal(org.omg.spec.api4kp._1_0.identifiers.ConceptIdentifier v) {
-    return DatatypeHelper.resolveTerm(
+    return LegacyDatatypeHelper.resolveTerm(
         v.getTag(),
         v.getNamespace().getVersion() != null ? getValuesForVersion(v.getNamespace()) : getValues(),
         Term::getTag)
@@ -37,7 +37,7 @@ public abstract class TermsXMLAdapter extends
 
   @Override
   public org.omg.spec.api4kp._1_0.identifiers.ConceptIdentifier marshal(Term v) {
-    return DatatypeHelper.toConceptIdentifier(v);
+    return LegacyDatatypeHelper.toConceptIdentifier(v);
   }
 
   protected abstract Term[] getValues();
