@@ -26,9 +26,9 @@ import org.omg.spec.api4kp._1_0.identifiers.ConceptIdentifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public interface AbstractTermsJsonAdapter {
+public interface LegacyAbstractTermsJsonAdapter {
 
-  Logger logger = LoggerFactory.getLogger(AbstractTermsJsonAdapter.class);
+  Logger logger = LoggerFactory.getLogger(LegacyAbstractTermsJsonAdapter.class);
 
   class AbstractSerializer<T extends Term> extends JsonSerializer<T> {
     @Override

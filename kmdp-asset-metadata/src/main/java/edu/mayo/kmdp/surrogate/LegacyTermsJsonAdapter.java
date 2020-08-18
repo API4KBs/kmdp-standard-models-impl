@@ -2,7 +2,7 @@ package edu.mayo.kmdp.surrogate;
 
 import com.fasterxml.jackson.core.TreeNode;
 import edu.mayo.kmdp.id.Term;
-import edu.mayo.kmdp.terms.adapters.json.AbstractTermsJsonAdapter;
+import edu.mayo.kmdp.terms.adapters.json.LegacyAbstractTermsJsonAdapter;
 import edu.mayo.ontology.taxonomies.iso639_2_languagecodes.Language;
 import edu.mayo.ontology.taxonomies.iso639_2_languagecodes.LanguageSeries;
 import edu.mayo.ontology.taxonomies.kao.knowledgeartifactcategory.IKnowledgeArtifactCategory;
@@ -55,12 +55,12 @@ public class LegacyTermsJsonAdapter {
   }
 
   public static class Serializer
-      extends AbstractTermsJsonAdapter.AbstractSerializer<Term> {
+      extends LegacyAbstractTermsJsonAdapter.AbstractSerializer<Term> {
 
   }
 
   public static class Deserializer
-      extends AbstractTermsJsonAdapter.AbstractDeserializer<Term> {
+      extends LegacyAbstractTermsJsonAdapter.AbstractDeserializer<Term> {
 
     @Override
     protected Optional<Term> resolveAsKnownTerm(TreeNode t, String tagNode) {

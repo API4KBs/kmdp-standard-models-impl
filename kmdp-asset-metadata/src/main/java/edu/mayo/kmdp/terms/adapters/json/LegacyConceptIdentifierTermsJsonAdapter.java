@@ -8,10 +8,10 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import java.io.IOException;
 import org.omg.spec.api4kp._1_0.identifiers.ConceptIdentifier;
 
-public interface ConceptIdentifierTermsJsonAdapter {
+public interface LegacyConceptIdentifierTermsJsonAdapter {
 
   class Serializer
-      extends AbstractTermsJsonAdapter.AbstractSerializer<ConceptIdentifier> {
+      extends LegacyAbstractTermsJsonAdapter.AbstractSerializer<ConceptIdentifier> {
     @Override
     public void serialize(ConceptIdentifier v, JsonGenerator gen, SerializerProvider serializers)
         throws IOException {
@@ -21,7 +21,7 @@ public interface ConceptIdentifierTermsJsonAdapter {
   }
 
   class Deserializer
-      extends AbstractTermsJsonAdapter.AbstractDeserializer<ConceptIdentifier> {
+      extends LegacyAbstractTermsJsonAdapter.AbstractDeserializer<ConceptIdentifier> {
 
     @Override
     public ConceptIdentifier deserialize(JsonParser jp, DeserializationContext ctxt)

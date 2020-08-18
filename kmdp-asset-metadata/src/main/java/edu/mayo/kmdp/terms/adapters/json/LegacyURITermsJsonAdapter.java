@@ -20,12 +20,12 @@ import org.omg.spec.api4kp._1_0.identifiers.NamespaceIdentifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public interface URITermsJsonAdapter {
+public interface LegacyURITermsJsonAdapter {
 
-  Logger logger = LoggerFactory.getLogger(URITermsJsonAdapter.class);
+  Logger logger = LoggerFactory.getLogger(LegacyURITermsJsonAdapter.class);
 
   class Serializer<T extends Term>
-      extends AbstractTermsJsonAdapter.AbstractSerializer<T> {
+      extends LegacyAbstractTermsJsonAdapter.AbstractSerializer<T> {
     protected Serializer() {
       // nothing to do
     }
@@ -47,7 +47,7 @@ public interface URITermsJsonAdapter {
   }
 
   abstract class Deserializer<T extends Term>
-      extends AbstractTermsJsonAdapter.AbstractDeserializer<T> {
+      extends LegacyAbstractTermsJsonAdapter.AbstractDeserializer<T> {
 
     @Override
     public T deserialize(JsonParser jp, DeserializationContext ctxt) {

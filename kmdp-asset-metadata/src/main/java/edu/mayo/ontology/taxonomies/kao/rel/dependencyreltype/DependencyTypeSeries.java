@@ -9,6 +9,7 @@ import edu.mayo.kmdp.id.VersionedIdentifier;
 import edu.mayo.kmdp.series.Series;
 import edu.mayo.kmdp.terms.ConceptTerm;
 import edu.mayo.kmdp.terms.TermDescription;
+import edu.mayo.kmdp.terms.adapters.json.LegacyURITermsJsonAdapter;
 import edu.mayo.kmdp.terms.adapters.xml.LegacyTermsXMLAdapter;
 import java.net.URI;
 import java.util.Arrays;
@@ -164,11 +165,11 @@ public enum DependencyTypeSeries implements DependencyType, Series<DependencyTyp
   }
 
 
-  public static class JsonSerializer extends edu.mayo.kmdp.terms.adapters.json.URITermsJsonAdapter.Serializer<DependencyType> {
+  public static class JsonSerializer extends LegacyURITermsJsonAdapter.Serializer<DependencyType> {
 
   }
 
-  public static class JsonDeserializer extends edu.mayo.kmdp.terms.adapters.json.URITermsJsonAdapter.Deserializer<DependencyType> {
+  public static class JsonDeserializer extends LegacyURITermsJsonAdapter.Deserializer<DependencyType> {
     protected DependencyType[] getValues() { return values(); }
 
     @Override

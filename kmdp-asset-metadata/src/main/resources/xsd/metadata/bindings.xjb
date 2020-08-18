@@ -26,9 +26,9 @@
       xmlns:tns="http://www.omg.org/spec/API4KP/1.0/identifiers">
       <annox:annotate target="field">
         <annox:annotate annox:class="com.fasterxml.jackson.databind.annotation.JsonSerialize"
-          using="edu.mayo.kmdp.terms.adapters.json.ConceptIdentifierTermsJsonAdapter.Serializer"/>
+          using="edu.mayo.kmdp.terms.adapters.json.LegacyConceptIdentifierTermsJsonAdapter.Serializer"/>
         <annox:annotate annox:class="com.fasterxml.jackson.databind.annotation.JsonDeserialize"
-          using="edu.mayo.kmdp.terms.adapters.json.ConceptIdentifierTermsJsonAdapter.Deserializer"/>
+          using="edu.mayo.kmdp.terms.adapters.json.LegacyConceptIdentifierTermsJsonAdapter.Deserializer"/>
       </annox:annotate>
     </jxb:bindings>
 
@@ -65,9 +65,9 @@
       xmlns:tns="http://www.omg.org/spec/API4KP/1.0/identifiers">
       <annox:annotate target="field">
         <annox:annotate annox:class="com.fasterxml.jackson.databind.annotation.JsonSerialize"
-          using="edu.mayo.kmdp.terms.adapters.json.ConceptIdentifierTermsJsonAdapter.Serializer"/>
+          using="edu.mayo.kmdp.terms.adapters.json.LegacyConceptIdentifierTermsJsonAdapter.Serializer"/>
         <annox:annotate annox:class="com.fasterxml.jackson.databind.annotation.JsonDeserialize"
-          using="edu.mayo.kmdp.terms.adapters.json.ConceptIdentifierTermsJsonAdapter.Deserializer"/>
+          using="edu.mayo.kmdp.terms.adapters.json.LegacyConceptIdentifierTermsJsonAdapter.Deserializer"/>
       </annox:annotate>
     </jxb:bindings>
 

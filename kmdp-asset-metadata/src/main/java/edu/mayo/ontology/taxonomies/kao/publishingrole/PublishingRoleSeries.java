@@ -9,6 +9,7 @@ import edu.mayo.kmdp.id.VersionedIdentifier;
 import edu.mayo.kmdp.series.Series;
 import edu.mayo.kmdp.terms.ConceptTerm;
 import edu.mayo.kmdp.terms.TermDescription;
+import edu.mayo.kmdp.terms.adapters.json.LegacyURITermsJsonAdapter;
 import edu.mayo.kmdp.terms.adapters.xml.LegacyTermsXMLAdapter;
 import java.net.URI;
 import java.util.Arrays;
@@ -190,11 +191,11 @@ public enum PublishingRoleSeries implements PublishingRole, Series<PublishingRol
   }
 
 
-  public static class JsonSerializer extends edu.mayo.kmdp.terms.adapters.json.URITermsJsonAdapter.Serializer<PublishingRole> {
+  public static class JsonSerializer extends LegacyURITermsJsonAdapter.Serializer<PublishingRole> {
 
   }
 
-  public static class JsonDeserializer extends edu.mayo.kmdp.terms.adapters.json.URITermsJsonAdapter.Deserializer<PublishingRole> {
+  public static class JsonDeserializer extends LegacyURITermsJsonAdapter.Deserializer<PublishingRole> {
     protected PublishingRole[] getValues() { return values(); }
 
     @Override

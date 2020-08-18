@@ -9,6 +9,7 @@ import edu.mayo.kmdp.id.VersionedIdentifier;
 import edu.mayo.kmdp.series.Series;
 import edu.mayo.kmdp.terms.ConceptTerm;
 import edu.mayo.kmdp.terms.TermDescription;
+import edu.mayo.kmdp.terms.adapters.json.LegacyURITermsJsonAdapter;
 import edu.mayo.kmdp.terms.adapters.xml.LegacyTermsXMLAdapter;
 import edu.mayo.kmdp.terms.impl.model.LegacyTermImpl;
 import edu.mayo.kmdp.util.DateTimeUtil;
@@ -380,9 +381,9 @@ public enum KnowledgeAssetType implements edu.mayo.ontology.taxonomies.kao.knowl
     protected Term[] getValues() { return values(); }
 	}
 
-  public static class JsonSerializer extends edu.mayo.kmdp.terms.adapters.json.URITermsJsonAdapter.Serializer<KnowledgeAssetType> {}
+  public static class JsonSerializer extends LegacyURITermsJsonAdapter.Serializer<KnowledgeAssetType> {}
 
-  public static class JsonDeserializer extends edu.mayo.kmdp.terms.adapters.json.URITermsJsonAdapter.Deserializer<KnowledgeAssetType> {
+  public static class JsonDeserializer extends LegacyURITermsJsonAdapter.Deserializer<KnowledgeAssetType> {
     protected KnowledgeAssetType[] getValues() {
       return values();
     }

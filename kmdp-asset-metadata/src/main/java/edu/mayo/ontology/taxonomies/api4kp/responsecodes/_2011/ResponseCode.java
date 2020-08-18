@@ -9,6 +9,7 @@ import edu.mayo.kmdp.id.VersionedIdentifier;
 import edu.mayo.kmdp.series.Series;
 import edu.mayo.kmdp.terms.ConceptTerm;
 import edu.mayo.kmdp.terms.TermDescription;
+import edu.mayo.kmdp.terms.adapters.json.LegacyURITermsJsonAdapter;
 import edu.mayo.kmdp.terms.adapters.xml.LegacyTermsXMLAdapter;
 import edu.mayo.kmdp.terms.impl.model.LegacyTermImpl;
 import edu.mayo.kmdp.util.DateTimeUtil;
@@ -471,9 +472,9 @@ public enum ResponseCode implements edu.mayo.ontology.taxonomies.api4kp.response
     protected Term[] getValues() { return values(); }
 	}
 
-  public static class JsonSerializer extends edu.mayo.kmdp.terms.adapters.json.URITermsJsonAdapter.Serializer<ResponseCode> {}
+  public static class JsonSerializer extends LegacyURITermsJsonAdapter.Serializer<ResponseCode> {}
 
-  public static class JsonDeserializer extends edu.mayo.kmdp.terms.adapters.json.URITermsJsonAdapter.Deserializer<ResponseCode> {
+  public static class JsonDeserializer extends LegacyURITermsJsonAdapter.Deserializer<ResponseCode> {
     protected ResponseCode[] getValues() {
       return values();
     }

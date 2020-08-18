@@ -9,6 +9,7 @@ import edu.mayo.kmdp.id.VersionedIdentifier;
 import edu.mayo.kmdp.series.Series;
 import edu.mayo.kmdp.terms.ConceptTerm;
 import edu.mayo.kmdp.terms.TermDescription;
+import edu.mayo.kmdp.terms.adapters.json.LegacyURITermsJsonAdapter;
 import edu.mayo.kmdp.terms.adapters.xml.LegacyTermsXMLAdapter;
 import edu.mayo.kmdp.terms.impl.model.LegacyTermImpl;
 import edu.mayo.kmdp.util.DateTimeUtil;
@@ -170,9 +171,9 @@ public enum ConceptDefinitionType implements edu.mayo.ontology.taxonomies.ccgent
     protected Term[] getValues() { return values(); }
 	}
 
-  public static class JsonSerializer extends edu.mayo.kmdp.terms.adapters.json.URITermsJsonAdapter.Serializer<ConceptDefinitionType> {}
+  public static class JsonSerializer extends LegacyURITermsJsonAdapter.Serializer<ConceptDefinitionType> {}
 
-  public static class JsonDeserializer extends edu.mayo.kmdp.terms.adapters.json.URITermsJsonAdapter.Deserializer<ConceptDefinitionType> {
+  public static class JsonDeserializer extends LegacyURITermsJsonAdapter.Deserializer<ConceptDefinitionType> {
     protected ConceptDefinitionType[] getValues() {
       return values();
     }

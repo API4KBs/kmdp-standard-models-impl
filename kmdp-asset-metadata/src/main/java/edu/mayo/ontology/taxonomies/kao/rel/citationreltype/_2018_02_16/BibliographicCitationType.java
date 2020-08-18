@@ -9,6 +9,7 @@ import edu.mayo.kmdp.id.VersionedIdentifier;
 import edu.mayo.kmdp.series.Series;
 import edu.mayo.kmdp.terms.ConceptTerm;
 import edu.mayo.kmdp.terms.TermDescription;
+import edu.mayo.kmdp.terms.adapters.json.LegacyURITermsJsonAdapter;
 import edu.mayo.kmdp.terms.adapters.xml.LegacyTermsXMLAdapter;
 import edu.mayo.kmdp.terms.impl.model.LegacyTermImpl;
 import edu.mayo.kmdp.util.DateTimeUtil;
@@ -422,9 +423,9 @@ public enum BibliographicCitationType implements edu.mayo.ontology.taxonomies.ka
     protected Term[] getValues() { return values(); }
 	}
 
-  public static class JsonSerializer extends edu.mayo.kmdp.terms.adapters.json.URITermsJsonAdapter.Serializer<BibliographicCitationType> {}
+  public static class JsonSerializer extends LegacyURITermsJsonAdapter.Serializer<BibliographicCitationType> {}
 
-  public static class JsonDeserializer extends edu.mayo.kmdp.terms.adapters.json.URITermsJsonAdapter.Deserializer<BibliographicCitationType> {
+  public static class JsonDeserializer extends LegacyURITermsJsonAdapter.Deserializer<BibliographicCitationType> {
     protected BibliographicCitationType[] getValues() {
       return values();
     }

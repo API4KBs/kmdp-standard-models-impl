@@ -9,6 +9,7 @@ import edu.mayo.kmdp.id.VersionedIdentifier;
 import edu.mayo.kmdp.series.Series;
 import edu.mayo.kmdp.terms.ConceptTerm;
 import edu.mayo.kmdp.terms.TermDescription;
+import edu.mayo.kmdp.terms.adapters.json.LegacyURITermsJsonAdapter;
 import edu.mayo.kmdp.terms.adapters.xml.LegacyTermsXMLAdapter;
 import java.net.URI;
 import java.util.Arrays;
@@ -160,11 +161,11 @@ public enum KnowledgeAssetRoleSeries implements KnowledgeAssetRole, Series<Knowl
   }
 
 
-  public static class JsonSerializer extends edu.mayo.kmdp.terms.adapters.json.URITermsJsonAdapter.Serializer<KnowledgeAssetRole> {
+  public static class JsonSerializer extends LegacyURITermsJsonAdapter.Serializer<KnowledgeAssetRole> {
 
   }
 
-  public static class JsonDeserializer extends edu.mayo.kmdp.terms.adapters.json.URITermsJsonAdapter.Deserializer<KnowledgeAssetRole> {
+  public static class JsonDeserializer extends LegacyURITermsJsonAdapter.Deserializer<KnowledgeAssetRole> {
     protected KnowledgeAssetRole[] getValues() { return values(); }
 
     @Override
