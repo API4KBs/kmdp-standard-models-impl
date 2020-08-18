@@ -1,12 +1,9 @@
 package edu.mayo.ontology.taxonomies.krserialization._20190801;
 
 import static edu.mayo.kmdp.id.helper.DatatypeHelper.indexByUUID;
-import static edu.mayo.kmdp.id.helper.DatatypeHelper.resolveTerm;
 import static edu.mayo.kmdp.id.helper.DatatypeHelper.resolveAliases;
-import static edu.mayo.kmdp.id.helper.DatatypeHelper.versionOf;
+import static edu.mayo.kmdp.id.helper.DatatypeHelper.resolveTerm;
 
-import edu.mayo.kmdp.id.helper.DatatypeHelper;
-import edu.mayo.kmdp.id.Identifier;
 import edu.mayo.kmdp.id.Term;
 import edu.mayo.kmdp.id.VersionedIdentifier;
 import edu.mayo.kmdp.series.Series;
@@ -14,8 +11,8 @@ import edu.mayo.kmdp.terms.ConceptTerm;
 import edu.mayo.kmdp.terms.TermDescription;
 import edu.mayo.kmdp.terms.impl.model.TermImpl;
 import edu.mayo.kmdp.util.DateTimeUtil;
+import edu.mayo.ontology.taxonomies.krserialization.KnowledgeRepresentationLanguageSerializationSeries;
 import java.net.URI;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -23,9 +20,6 @@ import java.util.UUID;
 import org.omg.spec.api4kp._1_0.identifiers.NamespaceIdentifier;
 import org.omg.spec.api4kp._1_0.identifiers.URIIdentifier;
 import org.omg.spec.api4kp._1_0.identifiers.VersionTagType;
-
-import edu.mayo.ontology.taxonomies.krserialization.KnowledgeRepresentationLanguageSerializationSeries;
-import edu.mayo.kmdp.terms.impl.model.AnonymousConceptScheme;
 
 
 @javax.xml.bind.annotation.XmlType(name = "KnowledgeRepresentationLanguageSerialization")
