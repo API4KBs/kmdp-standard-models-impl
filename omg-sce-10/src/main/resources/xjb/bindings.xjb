@@ -1,0 +1,31 @@
+<jxb:bindings
+  xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+  xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/"
+  version="2.0">
+
+  <jxb:bindings schemaLocation="https://www.omg.org/spec/DMN/20180521/DI.xsd">
+    <xjc:simple/>
+  </jxb:bindings>
+  <jxb:bindings schemaLocation="https://www.omg.org/spec/DMN/20180521/DC.xsd">
+    <xjc:simple/>
+
+  </jxb:bindings>
+
+
+  <jxb:bindings schemaLocation="../xsd/org/omg/spec/sce/_20201109/SCE10.xsd">
+    <xjc:simple/>
+    <jxb:schemaBindings>
+      <jxb:package name="org.omg.spec.sce._20201109.sce"/>
+    </jxb:schemaBindings>
+  </jxb:bindings>
+
+  <jxb:bindings schemaLocation="../xsd/org/omg/spec/sce/_20201109/SCEDI10.xsd">
+    <xjc:simple/>
+    <jxb:schemaBindings>
+      <jxb:package name="org.omg.spec.sce._20201109.scedi"/>
+    </jxb:schemaBindings>
+  </jxb:bindings>
+
+</jxb:bindings>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>kmdp-standard-models-impl</artifactId>
+    <groupId>edu.mayo.kmdp</groupId>
+    <version>8.0.0-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>omg-sce-10</artifactId>
+
+  <name>KMDP :: Lang :: OMG :: SCE 1.0 Schemas</name>
+
+  <properties>
+    <xsd-name>org/omg/spec/sce/_20201109/SCE10.xsd</xsd-name>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.jvnet.jaxb2_commons</groupId>
+      <artifactId>jaxb2-basics</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>edu.mayo.kmdp</groupId>
+      <artifactId>kmdp-environment</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>edu.mayo.kmdp</groupId>
+      <artifactId>kmdp-utils</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>edu.mayo.kmdp</groupId>
+      <artifactId>kmdp-test-utils</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>org.jvnet.jaxb2.maven2</groupId>
+        <artifactId>maven-jaxb2-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>gen-sce10</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+
+              <schemas>
+                <schema>
+                  <fileset>
+                    <!-- Cannot use URL due to platform-specific file separators -->
+                    <directory>${basedir}/src/main/resources/xsd</directory>
+                    <includes>
+                      <include>**/sce/_20201109/*.xsd</include>
+                    </includes>
+                  </fileset>
+                </schema>
+              </schemas>
+
+              <bindingDirectory>${basedir}/src/main/resources/xjb</bindingDirectory>
+
+              <catalogs>
+                <catalog>
+                  <fileset>
+                    <directory>${basedir}/src/main/resources/xsd</directory>
+                    <includes>
+                      <include>**/sce-catalog.xml</include>
+                    </includes>
+                  </fileset>
+                </catalog>
+              </catalogs>
+
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+
+</project>
