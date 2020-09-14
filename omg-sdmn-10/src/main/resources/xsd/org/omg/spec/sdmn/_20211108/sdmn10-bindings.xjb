@@ -1,0 +1,42 @@
+<jxb:bindings
+  xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+  xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  version="2.0">
+
+  <jxb:bindings schemaLocation="bmi-21-11-06.xsd" node="/xsd:schema">
+    <xjc:simple/>
+    <jxb:schemaBindings>
+      <!-- JAXB cannot handle https-based NS properly -->
+      <jxb:package name="org.omg.spec.sdmn._20201108.sdmn"/>
+    </jxb:schemaBindings>
+  </jxb:bindings>
+
+  <jxb:bindings schemaLocation="bmi-21-11-07.xsd">
+    <jxb:bindings
+      node="xsd:complexType[@name='tSDMNModel']/xsd:complexContent/xsd:extension/xsd:sequence/xsd:element[@name='definitions']">
+      <jxb:property name="sdmnDefinitions"/>
+    </jxb:bindings>
+    <jxb:bindings
+      node="xsd:complexType[@name='tConnector']/xsd:complexContent/xsd:extension/xsd:sequence/xsd:element[@name='sourceRef']">
+      <jxb:property name="sdmnSourceRef"/>
+    </jxb:bindings>
+    <jxb:bindings
+      node="xsd:complexType[@name='tConnector']/xsd:complexContent/xsd:extension/xsd:sequence/xsd:element[@name='targetRef']">
+      <jxb:property name="sdmnTargetRef"/>
+    </jxb:bindings>
+  </jxb:bindings>
+
+  <jxb:bindings schemaLocation="bmi-21-11-08.xsd">
+    <xjc:simple/>
+    <jxb:schemaBindings>
+      <!-- JAXB cannot handle https-based NS properly -->
+      <jxb:package name="org.omg.spec.sdmn._20201108.sdmndi"/>
+    </jxb:schemaBindings>
+    <jxb:bindings
+      node="xsd:complexType[@name='tSDMNDI']/xsd:complexContent/xsd:extension/xsd:sequence/xsd:element[@name='diagram']">
+      <jxb:property name="sdmnDiagram"/>
+    </jxb:bindings>
+  </jxb:bindings>
+
+</jxb:bindings>

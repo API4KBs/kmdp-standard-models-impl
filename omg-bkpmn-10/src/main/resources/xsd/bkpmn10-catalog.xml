@@ -17,16 +17,12 @@
 -->
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
 
-  <public publicId="https://www.omg.org/spec/SCE/20211108/MODEL"
-    uri="org/omg/spec/sce/_20211108/bmi-21-11-25.xsd"/>
+  <public publicId="https://www.omg.org/spec/BKPMN/20211108/MODEL"
+    uri="org/omg/spec/dmn/_20211108/bmi-21-11-16.xsd"/>
 
-  <public publicId="https://www.omg.org/spec/SCE/20211108/SCEDI"
-    uri="org/omg/spec/sce/_20211108/bmi-21-11-27.xsd"/>
+  <public publicId="https://www.omg.org/spec/BKPMN/20211108/BKPMNDI"
+    uri="org/omg/spec/dmn/_20211108/bmi-21-11-18.xsd"/>
 
-  <public publicId="http://www.omg.org/spec/SCE/20210830/DI"
-    uri="org/omg/spec/sce/_20211108/bmi-21-11-29.xsd"/>
-
-  <public publicId="http://www.omg.org/spec/SCE/20210830/DC"
-    uri="org/omg/spec/sce/_20211108/bmi-21-11-30.xsd"/>
+  <nextCatalog catalog="sce-catalog.xml"/>
 
 </catalog>

@@ -18,13 +18,16 @@
     <module>hl7-fhir-dstu2</module>
     <module>hl7-fhir-stu3</module>
     <module>hl7-knart-13</module>
-    <module>omg-sce-10</module>
     <module>omg-dmn-11</module>
     <module>omg-dmn-12</module>
+    <module>omg-dmn-13</module>
     <module>omg-cmmn-11</module>
     <module>omg-bpmn-202</module>
-    <module>w3c-xsd-11</module>
+    <module>omg-sce-10</module>
+    <module>omg-sdmn-10</module>
+    <module>omg-bkpmn-10</module>
     <module>w3c-odrl-21</module>
+    <module>w3c-xsd-11</module>
   </modules>
 
   <name>KMDP :: Standard Languages (Meta)Models, Grammars and Schemas</name>
@@ -61,5 +64,51 @@
       </distributionManagement>
     </profile>
   </profiles>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <executions>
+            <execution>
+              <id>copy-xsd</id>
+              <phase>prepare-package</phase>
+              <goals>
+                <goal>copy-resources</goal>
+              </goals>
+              <configuration>
+                <outputDirectory>${project.build.outputDirectory}/xsd</outputDirectory>
+                <resources>
+                  <resource>
+                    <directory>${project.build.directory}/xsd</directory>
+                    <filtering>true</filtering>
+                  </resource>
+                </resources>
+              </configuration>
+            </execution>
+            <execution>
+              <id>copy-episode</id>
+              <phase>prepare-package</phase>
+              <goals>
+                <goal>copy-resources</goal>
+              </goals>
+              <configuration>
+                <outputDirectory>${project.build.outputDirectory}/META-INF</outputDirectory>
+                <resources>
+                  <resource>
+                    <directory>${project.build.directory}/generated-sources/xjc/META-INF</directory>
+                    <filtering>true</filtering>
+                  </resource>
+                </resources>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+
+    </pluginManagement>
+  </build>
 
 </project>

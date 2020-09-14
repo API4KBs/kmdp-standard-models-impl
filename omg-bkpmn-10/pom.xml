@@ -9,12 +9,12 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>omg-dmn-12</artifactId>
+  <artifactId>omg-bkpmn-10</artifactId>
 
-  <name>KMDP :: Lang :: OMG :: DMN 1.2 Schemas</name>
+  <name>KMDP :: Lang :: OMG :: BKPMN 1.0 Schemas</name>
 
   <properties>
-    <xsd-name>org/omg/spec/dmn/_20180521/DMN12.xsd</xsd-name>
+    <xsd-name>org/omg/spec/bkpmn/_20211108/bmi-21-11-16.xsd</xsd-name>
   </properties>
 
   <dependencies>
@@ -25,6 +25,12 @@
     <dependency>
       <groupId>javax.xml.bind</groupId>
       <artifactId>jaxb-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>edu.mayo.kmdp</groupId>
+      <artifactId>omg-sce-10</artifactId>
+      <version>${project.version}</version>
     </dependency>
 
     <dependency>
@@ -58,16 +64,48 @@
       </plugin>
 
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>include-xsds</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>edu.mayo.kmdp</groupId>
+                  <artifactId>omg-sce-10</artifactId>
+                  <version>${project.version}</version>
+
+                  <type>jar</type>
+                  <overWrite>true</overWrite>
+                  <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+                  <includes>**/*.xsd,**/*.xjb,**/*catalog*.xml</includes>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
         <groupId>org.jvnet.jaxb2.maven2</groupId>
         <artifactId>maven-jaxb2-plugin</artifactId>
         <executions>
           <execution>
-            <id>gen-dmn12</id>
+            <id>gen-kpmn10</id>
             <phase>process-resources</phase>
             <goals>
               <goal>generate</goal>
             </goals>
             <configuration>
+              <catalog>${project.build.outputDirectory}/xsd/bkpmn10-catalog.xml</catalog>
+
+              <useDependenciesAsEpisodes>true</useDependenciesAsEpisodes>
+
               <schemas>
                 <schema>
                   <fileset>
@@ -79,6 +117,10 @@
                   </fileset>
                 </schema>
               </schemas>
+
+              <bindingIncludes>
+                <include>**/org/omg/spec/bkpmn/**/*.xjb</include>
+              </bindingIncludes>
               <bindingDirectory>${project.build.outputDirectory}</bindingDirectory>
             </configuration>
           </execution>

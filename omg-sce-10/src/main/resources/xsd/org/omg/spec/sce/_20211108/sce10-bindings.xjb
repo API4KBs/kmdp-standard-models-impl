@@ -1,0 +1,24 @@
+<jxb:bindings
+  xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+  xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/"
+  version="2.0">
+
+  <jxb:bindings schemaLocation="bmi-21-11-25.xsd">
+    <xjc:simple/>
+    <jxb:schemaBindings>
+      <!-- JAXB cannot handle https-based NS properly -->
+      <jxb:package name="org.omg.spec.sce._20201108.sce"/>
+    </jxb:schemaBindings>
+  </jxb:bindings>
+
+  <jxb:bindings schemaLocation="bmi-21-11-27.xsd">
+    <xjc:simple/>
+    <jxb:schemaBindings>
+      <!-- JAXB cannot handle https-based NS properly -->
+      <jxb:package name="org.omg.spec.sce._20201108.scedi"/>
+    </jxb:schemaBindings>
+  </jxb:bindings>
+
+</jxb:bindings>

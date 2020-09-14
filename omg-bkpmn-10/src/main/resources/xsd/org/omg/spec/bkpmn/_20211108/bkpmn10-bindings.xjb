@@ -1,0 +1,52 @@
+<jxb:bindings
+  xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+  xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  version="2.0">
+
+  <jxb:bindings schemaLocation="bmi-21-11-16.xsd" node="/xsd:schema">
+    <xjc:simple/>
+    <jxb:schemaBindings>
+      <!-- JAXB cannot handle https-based NS properly -->
+      <jxb:package name="org.omg.spec.bkpmn._20201108.bkpmn"/>
+    </jxb:schemaBindings>
+    <jxb:bindings
+      node="xsd:complexType[@name='tBKPMNModelPackage']/xsd:complexContent/xsd:extension/xsd:sequence/xsd:element[@name='presentation']">
+      <jxb:property name="bkpmnPresentation"/>
+    </jxb:bindings>
+  </jxb:bindings>
+
+  <jxb:bindings schemaLocation="bmi-21-11-18.xsd" node="/xsd:schema">
+    <xjc:simple/>
+    <jxb:schemaBindings>
+      <!-- JAXB cannot handle https-based NS properly -->
+      <jxb:package name="org.omg.spec.bkpmn._20201108.bkpmndi"/>
+    </jxb:schemaBindings>
+    <jxb:bindings
+      node="xsd:complexType[@name='tBKPMNDI']/xsd:complexContent/xsd:extension/xsd:sequence/xsd:element[@name='diagram']">
+      <jxb:property name="bkpmnDiagram"/>
+    </jxb:bindings>
+  </jxb:bindings>
+
+
+  <jxb:bindings schemaLocation="bmi-21-11-17.xsd">
+    <jxb:bindings
+      node="xsd:complexType[@name='tBKPMNModel']/xsd:complexContent/xsd:extension/xsd:sequence/xsd:element[@name='definitions']">
+      <jxb:property name="bkpmnDefinitions"/>
+    </jxb:bindings>
+    <jxb:bindings
+      node="xsd:complexType[@name='tBKPMNModel']/xsd:complexContent/xsd:extension/xsd:sequence/xsd:element[@name='instances']">
+      <jxb:property name="bkpmnInstances"/>
+    </jxb:bindings>
+    <jxb:bindings
+      node="xsd:complexType[@name='tModelElementConnector']/xsd:complexContent/xsd:extension/xsd:sequence/xsd:element[@name='sourceRef']">
+      <jxb:property name="bkpmnSourceRef"/>
+    </jxb:bindings>
+    <jxb:bindings
+      node="xsd:complexType[@name='tModelElementConnector']/xsd:complexContent/xsd:extension/xsd:sequence/xsd:element[@name='targetRef']">
+      <jxb:property name="bkpmnTargetRef"/>
+    </jxb:bindings>
+  </jxb:bindings>
+
+
+</jxb:bindings>

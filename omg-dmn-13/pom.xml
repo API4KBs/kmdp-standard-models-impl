@@ -9,19 +9,16 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>omg-bpmn-202</artifactId>
+  <artifactId>omg-dmn-13</artifactId>
 
-  <name>KMDP :: Lang :: OMG :: BPMN 2.0.2 Schemas</name>
+  <name>KMDP :: Lang :: OMG :: DMN 1.3 Schemas</name>
 
   <properties>
-    <xsd-name>org/omg/spec/bpmn/BPMN20.xsd</xsd-name>
+    <s>${file.separator}</s>
+    <xsd-name>org/omg/spec/dmn/_20191111/DMN13.xsd</xsd-name>
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-    </dependency>
     <dependency>
       <groupId>org.jvnet.jaxb2_commons</groupId>
       <artifactId>jaxb2-basics</artifactId>
@@ -29,6 +26,27 @@
     <dependency>
       <groupId>javax.xml.bind</groupId>
       <artifactId>jaxb-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>edu.mayo.kmdp</groupId>
+      <artifactId>kmdp-environment</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>edu.mayo.kmdp</groupId>
+      <artifactId>kmdp-utils</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>edu.mayo.kmdp</groupId>
+      <artifactId>kmdp-test-utils</artifactId>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
@@ -45,31 +63,33 @@
         <artifactId>maven-jaxb2-plugin</artifactId>
         <executions>
           <execution>
-            <id>gen-bpmn</id>
+            <id>gen-dmn13</id>
             <phase>process-resources</phase>
             <goals>
               <goal>generate</goal>
             </goals>
             <configuration>
+              <catalog>${build.outputDirectory}${s}xsd${s}dmn13-catalog.xml</catalog>
               <schemas>
                 <schema>
                   <fileset>
                     <!-- Cannot use URL due to platform-specific file separators -->
-                    <directory>${project.build.outputDirectory}${file.separator}xsd</directory>
+                    <directory>${project.build.outputDirectory}${s}xsd</directory>
                     <includes>
+<!--                      <include>**/*.xsd</include>-->
                       <include>${xsd-name}</include>
                     </includes>
                   </fileset>
                 </schema>
               </schemas>
+              <bindingIncludes>
+                <include>**/*.xjb</include>
+              </bindingIncludes>
               <bindingDirectory>${project.build.outputDirectory}</bindingDirectory>
             </configuration>
           </execution>
         </executions>
-
       </plugin>
-
-
     </plugins>
   </build>
 

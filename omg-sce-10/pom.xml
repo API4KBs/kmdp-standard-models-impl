@@ -14,10 +14,11 @@
   <name>KMDP :: Lang :: OMG :: SCE 1.0 Schemas</name>
 
   <properties>
-    <xsd-name>org/omg/spec/sce/_20201109/SCE10.xsd</xsd-name>
+    <xsd-name>org/omg/spec/sce/_20211108/bmi-21-11-25.xsd</xsd-name>
   </properties>
 
   <dependencies>
+
     <dependency>
       <groupId>org.jvnet.jaxb2_commons</groupId>
       <artifactId>jaxb2-basics</artifactId>
@@ -53,6 +54,11 @@
     <plugins>
 
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+      </plugin>
+
+      <plugin>
         <groupId>org.jvnet.jaxb2.maven2</groupId>
         <artifactId>maven-jaxb2-plugin</artifactId>
         <executions>
@@ -63,31 +69,27 @@
               <goal>generate</goal>
             </goals>
             <configuration>
+              <catalog>${project.build.outputDirectory}/xsd/sce-catalog.xml</catalog>
+
+              <useDependenciesAsEpisodes>true</useDependenciesAsEpisodes>
 
               <schemas>
                 <schema>
                   <fileset>
                     <!-- Cannot use URL due to platform-specific file separators -->
-                    <directory>${basedir}/src/main/resources/xsd</directory>
+                    <directory>${project.build.outputDirectory}${file.separator}xsd</directory>
                     <includes>
-                      <include>**/sce/_20201109/*.xsd</include>
+                      <include>**/*.xsd</include>
                     </includes>
                   </fileset>
                 </schema>
               </schemas>
 
-              <bindingDirectory>${basedir}/src/main/resources/xjb</bindingDirectory>
-
-              <catalogs>
-                <catalog>
-                  <fileset>
-                    <directory>${basedir}/src/main/resources/xsd</directory>
-                    <includes>
-                      <include>**/sce-catalog.xml</include>
-                    </includes>
-                  </fileset>
-                </catalog>
-              </catalogs>
+              <bindingDirectory>${project.build.outputDirectory}</bindingDirectory>
+              <bindingIncludes>
+                <include>**/*.xjb</include>
+                <include>**/*.episode</include>
+              </bindingIncludes>
 
             </configuration>
           </execution>

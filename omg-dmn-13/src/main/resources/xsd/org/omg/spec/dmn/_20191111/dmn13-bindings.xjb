@@ -1,0 +1,23 @@
+<jxb:bindings
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+  xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+  version="2.0">
+
+  <jxb:bindings schemaLocation="DMN13.xsd">
+    <xjc:simple/>
+    <jxb:schemaBindings>
+      <jxb:package name="org.omg.spec.dmn._20191111.model"/>
+    </jxb:schemaBindings>
+  </jxb:bindings>
+
+  <jxb:bindings schemaLocation="DMNDI13.xsd">
+    <xjc:simple/>
+    <jxb:schemaBindings>
+      <jxb:package name="org.omg.spec.dmn._20191111.dmndi"/>
+    </jxb:schemaBindings>
+  </jxb:bindings>
+
+
+
+</jxb:bindings>
