@@ -14,7 +14,6 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>kmdp-asset-metadata</module>
     <module>hl7-fhirpath-stu1</module>
     <module>hl7-fhir-dstu2</module>
     <module>hl7-fhir-stu3</module>
