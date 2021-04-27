@@ -20,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import ca.uhn.fhir.context.FhirContext;
+import ca.uhn.fhir.context.support.DefaultProfileValidationSupport;
 import ca.uhn.fhir.model.api.annotation.DatatypeDef;
 import ca.uhn.fhir.model.api.annotation.ResourceDef;
 import java.util.Arrays;
@@ -28,7 +29,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import org.hl7.fhir.dstu3.hapi.ctx.HapiWorkerContext;
-import org.hl7.fhir.dstu3.hapi.ctx.DefaultProfileValidationSupport;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.BaseResource;
 import org.hl7.fhir.dstu3.model.BooleanType;
@@ -48,10 +48,10 @@ import org.hl7.fhir.dstu3.model.Quantity;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
 import org.junit.jupiter.api.Test;
 
-public class FhirPathEvaluatedAnalysisTest {
+class FhirPathEvaluatedAnalysisTest {
 
-  private static FHIRPathTypeAnalyzer analyzer = new FHIRPathTypeAnalyzer();
-  private static FhirPathProcessor processor = new FhirPathProcessor();
+  private static final FHIRPathTypeAnalyzer analyzer = new FHIRPathTypeAnalyzer();
+  private static final FhirPathProcessor processor = new FhirPathProcessor();
   
   @Test
   void testNonEmptyBundle() {
@@ -250,8 +250,10 @@ public class FhirPathEvaluatedAnalysisTest {
   
   
   private static class FhirPathProcessor {
-    private FHIRPathEngine fhirPathEngine = new FHIRPathEngine(
-        new HapiWorkerContext(FhirContext.forDstu3(), new DefaultProfileValidationSupport()));
+    FhirContext ctx = FhirContext.forDstu3();
+    private final FHIRPathEngine fhirPathEngine = new FHIRPathEngine(
+        new HapiWorkerContext(ctx,
+            new DefaultProfileValidationSupport(ctx)));
 
     Base process(Base resource, String fhirPath) {
       List<Base> r = this.fhirPathEngine.evaluate(resource, fhirPath);

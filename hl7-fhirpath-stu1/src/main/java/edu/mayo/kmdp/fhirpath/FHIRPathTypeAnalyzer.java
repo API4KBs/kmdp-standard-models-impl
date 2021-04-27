@@ -15,13 +15,15 @@
  */
 package edu.mayo.kmdp.fhirpath;
 
+import static org.hl7.fhir.dstu3.model.Enumerations.FHIRAllTypes.fromCode;
+
 import ca.uhn.fhir.context.FhirContext;
+import ca.uhn.fhir.context.support.DefaultProfileValidationSupport;
+import ca.uhn.fhir.context.support.IValidationSupport;
+import java.util.EnumMap;
+import java.util.List;
 import java.util.Optional;
-import org.hl7.fhir.dstu3.hapi.ctx.DefaultProfileValidationSupport;
-import org.slf4j.LoggerFactory;
-import org.slf4j.Logger;
 import org.hl7.fhir.dstu3.hapi.ctx.HapiWorkerContext;
-import org.hl7.fhir.dstu3.hapi.ctx.IValidationSupport;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.Enumerations.DataType;
 import org.hl7.fhir.dstu3.model.Enumerations.FHIRAllTypes;
@@ -29,20 +31,39 @@ import org.hl7.fhir.dstu3.model.ExpressionNode;
 import org.hl7.fhir.dstu3.model.ExpressionNode.Function;
 import org.hl7.fhir.dstu3.model.ResourceType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.instance.model.api.IBaseResource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class FHIRPathTypeAnalyzer {
 
-  private static Logger logger = LoggerFactory.getLogger(FHIRPathTypeAnalyzer.class);
+  private static final Logger logger = LoggerFactory.getLogger(FHIRPathTypeAnalyzer.class);
 
-  private IValidationSupport validator = new DefaultProfileValidationSupport();
-  private FhirContext fhirContext = FhirContext.forDstu3();
-  private FHIRPathEngine fhirPath3Engine = new FHIRPathEngine(
-      new HapiWorkerContext(fhirContext, validator));
+  private final FHIRPathEngine fhirPath3Engine;
+  private final EnumMap<FHIRAllTypes,StructureDefinition> definitionIndex;
 
   public FHIRPathTypeAnalyzer() {
-    validator.fetchAllStructureDefinitions(fhirContext);
+    var fhirContext = FhirContext.forDstu3();
+    IValidationSupport validator = new DefaultProfileValidationSupport(fhirContext);
+    List<IBaseResource> resourceList = validator.fetchAllStructureDefinitions();
+    definitionIndex = indexStructureDefinitions(resourceList);
+    fhirPath3Engine = new FHIRPathEngine(
+        new HapiWorkerContext(fhirContext, validator));
+  }
+
+  private EnumMap<FHIRAllTypes, StructureDefinition> indexStructureDefinitions(
+      List<IBaseResource> resourceList) {
+    EnumMap<FHIRAllTypes, StructureDefinition> map = new EnumMap<>(FHIRAllTypes.class);
+    resourceList.stream()
+        .filter(StructureDefinition.class::isInstance)
+        .map(StructureDefinition.class::cast)
+        .filter(sd -> sd.getKind() == StructureDefinitionKind.RESOURCE)
+        .filter(sd -> fromCode(sd.getType()) != null)
+        .forEach(sd -> map.put(fromCode(sd.getType()), sd));
+    return map;
   }
 
   public Optional<FHIRAllTypes> inferType(String pathExpression) {
@@ -54,7 +75,7 @@ public class FHIRPathTypeAnalyzer {
       ExpressionNode rootNode = fhirPath3Engine.parse(pathExpression);
       FHIRAllTypes rootType =
           isResource(rootNode.getName())
-              ? FHIRAllTypes.fromCode(rootNode.getName())
+              ? fromCode(rootNode.getName())
               : FHIRAllTypes.BUNDLE;
       return Optional.ofNullable(process(rootNode, rootType));
     } catch (FHIRException fe) {
@@ -89,9 +110,9 @@ public class FHIRPathTypeAnalyzer {
     String step = node.getName();
 
     if (isResource(step)) {
-      return process(node.getInner(), FHIRAllTypes.fromCode(step));
+      return process(node.getInner(), fromCode(step));
     } else if (type == null && isDatatype(step)) {
-      return FHIRAllTypes.fromCode(step);
+      return fromCode(step);
     } else if (type != null) {
       return processElement(node, step, type);
     } else {
@@ -110,22 +131,21 @@ public class FHIRPathTypeAnalyzer {
     }
     String typeStr = element.getTypeFirstRep().getCode();
     if (isResource(typeStr)) {
-      return process(node.getInner(), FHIRAllTypes.fromCode(typeStr));
+      return process(node.getInner(), fromCode(typeStr));
     } else if (isDatatype(typeStr)) {
-      return process(node.getInner(), FHIRAllTypes.fromCode(typeStr));
+      return process(node.getInner(), fromCode(typeStr));
     } else {
       throw new UnsupportedOperationException();
     }
   }
 
   private Optional<ElementDefinition> asElement(String step, FHIRAllTypes type) {
-    StructureDefinition schema =
-        validator.fetchStructureDefinition(fhirContext, type.toCode());
+    StructureDefinition schema = definitionIndex.get(type);
     if (schema == null) {
       return Optional.empty();
     }
     Optional<ElementDefinition> elem = tryGetElement(schema, type, step);
-    if (!elem.isPresent()) {
+    if (elem.isEmpty()) {
       elem = tryGetElement(schema, type, step + "[x]");
     }
     return elem;
@@ -136,10 +156,17 @@ public class FHIRPathTypeAnalyzer {
     if (schema.getDifferential() == null || schema.getDifferential().getElement() == null) {
       return Optional.empty();
     }
-    return schema.getDifferential().getElement().stream()
-        .filter(elDef -> elDef.getPath() != null
-            && elDef.getPath().equals(resourceType.toCode() + "." + step))
-        .findFirst();
+    return schema.getSnapshot().getElement().stream()
+        .filter(elDef -> matches(elDef, resourceType, step))
+        .findFirst()
+        .or(() -> schema.getDifferential().getElement().stream()
+            .filter(elDef -> matches(elDef, resourceType, step))
+            .findFirst());
+  }
+
+  private boolean matches(ElementDefinition elDef, FHIRAllTypes resourceType, String step) {
+    return elDef.getPath() != null
+        && elDef.getPath().equals(resourceType.toCode() + "." + step);
   }
 
   private boolean isResource(String code) {
@@ -165,7 +192,7 @@ public class FHIRPathTypeAnalyzer {
       case Empty:
         return FHIRAllTypes.BOOLEAN;
       case As:
-        FHIRAllTypes castType = FHIRAllTypes.fromCode(rootNode.getParameters().get(0).toString());
+        var castType = fromCode(rootNode.getParameters().get(0).toString());
         return process(rootNode.getInner(),castType);
       case First:
         return process(rootNode.getInner(),type);
