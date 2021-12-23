@@ -16,20 +16,18 @@
 package edu.mayo.kmdp;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import edu.mayo.kmdp.util.CatalogBasedURIResolver;
-import edu.mayo.kmdp.util.JaxbUtil;
 import edu.mayo.kmdp.util.StreamUtil;
-import edu.mayo.kmdp.util.XMLUtil;
 import java.io.InputStream;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.w3._2001.xmlschema.ObjectFactory;
 import org.w3._2001.xmlschema.Schema;
 import org.w3._2001.xmlschema.TopLevelComplexType;
 
@@ -51,11 +49,13 @@ class XSDTest {
 
 
   @Test
-  void testXSDParseWithDependencies() {
+  void testXSDParseWithDependencies() throws URISyntaxException {
     URL catalog = XSDTest.class.getResource("/dmn12-test-catalog.xml");
     URL root = XSDTest.class.getResource("/DMN12.xsd");
 
-    Map<String, Schema> dmnSchema = XSDHelper.loadSchemaWithDependencies(root, catalog);
+    assertNotNull(catalog);
+    assertNotNull(root);
+    Map<String, Schema> dmnSchema = XSDHelper.loadSchemaWithDependencies(root, catalog.toURI());
     assertEquals(4, dmnSchema.size());
   }
 }

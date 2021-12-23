@@ -1,21 +1,29 @@
 package edu.mayo.kmdp;
 
+import edu.mayo.kmdp.util.CatalogBasedURIResolver;
 import edu.mayo.kmdp.util.JaxbUtil;
 import edu.mayo.kmdp.util.StreamUtil;
-import edu.mayo.kmdp.util.XMLUtil;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-import org.apache.xml.resolver.tools.CatalogResolver;
+import javax.xml.catalog.CatalogException;
 import org.w3._2001.xmlschema.Import;
 import org.w3._2001.xmlschema.Include;
 import org.w3._2001.xmlschema.ObjectFactory;
 import org.w3._2001.xmlschema.Schema;
+import org.xml.sax.EntityResolver;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 public class XSDHelper {
+
+  private XSDHelper() {
+    // functions only
+  }
 
   public static Optional<Schema> loadSchema(InputStream is) {
     return JaxbUtil.unmarshall(ObjectFactory.class, Schema.class, is);
@@ -30,8 +38,8 @@ public class XSDHelper {
     }
   }
 
-  public static Map<String, Schema> loadSchemaWithDependencies(URL source, URL... catalogs) {
-    CatalogResolver resolver = XMLUtil.catalogResolver(catalogs);
+  public static Map<String, Schema> loadSchemaWithDependencies(URL source, URI... catalogs) {
+    EntityResolver resolver = new CatalogBasedURIResolver(catalogs);
     Map<String, Schema> schemas = new HashMap<>();
     loadSchemas(source, schemas, resolver);
     return schemas;
@@ -40,59 +48,51 @@ public class XSDHelper {
   private static void loadSchemas(
       URL source,
       Map<String, Schema> schemas,
-      CatalogResolver resolver) {
+      EntityResolver resolver) {
     loadSchema(source).ifPresent(schema -> registerSchema(schema, schemas, resolver));
   }
 
   private static void registerSchema(Schema s, Map<String, Schema> schemas,
-      CatalogResolver resolver) {
+      EntityResolver resolver) {
     if (schemas.containsKey(s.getTargetNamespace())) {
       return;
     }
     schemas.put(s.getTargetNamespace(), s);
     s.getComposition().stream()
         .flatMap(StreamUtil.filterAs(Import.class))
-        .forEach(imp -> loadImport(imp, schemas, resolver));
+        .forEach(imp -> {
+          try {
+            loadImport(imp, schemas, resolver);
+          } catch (IOException e) {
+            e.printStackTrace();
+          } catch (SAXException e) {
+            e.printStackTrace();
+          }
+        });
     s.getComposition().stream()
         .flatMap(StreamUtil.filterAs(Include.class))
         .forEach(incl -> loadInclude(incl, s, resolver));
   }
 
   private static void loadInclude(Include incl, Schema source,
-      CatalogResolver resolver) {
+      EntityResolver resolver) {
     throw new UnsupportedOperationException();
   }
 
   private static void loadImport(Import imp, Map<String, Schema> schemas,
-      CatalogResolver resolver) {
+      EntityResolver resolver) throws IOException, SAXException {
     String loc = imp.getSchemaLocation();
     if (schemas.containsKey(loc)) {
       // already resolved - do nothing;
       return;
     }
-    resolveLocation(loc, resolver)
-        .flatMap(XSDHelper::loadSchema)
-        .ifPresent(s -> registerSchema(s, schemas, resolver));
-  }
-
-  private static Optional<URL> resolveLocation(String loc, CatalogResolver resolver) {
-    try {
-      if (loc == null) {
-        return Optional.empty();
-      }
-      if (loc.startsWith("http:/")
-          || loc.startsWith("https:/")
-          || loc.startsWith("file:/")) {
-        return Optional.of(new URL(loc));
-      } else if (resolver != null) {
-        loc = resolver.getCatalog().resolveURI(loc);
-        return resolveLocation(loc, resolver);
-      } else {
-        return Optional.empty();
-      }
-    } catch (IOException ioe) {
-      ioe.printStackTrace();
-      return Optional.empty();
+    InputSource src = resolver.resolveEntity(imp.getNamespace(), imp.getSchemaLocation());
+    if (src != null) {
+       XSDHelper.loadSchema(src.getByteStream())
+          .ifPresent(s -> registerSchema(s, schemas, resolver));
+    } else {
+      throw new CatalogException(
+          "Unable to resolve import" + imp.getNamespace() + " at " + imp.getSchemaLocation());
     }
   }
 
