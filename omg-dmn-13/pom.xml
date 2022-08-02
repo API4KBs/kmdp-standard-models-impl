@@ -69,7 +69,7 @@
               <goal>generate</goal>
             </goals>
             <configuration>
-              <catalog>${build.outputDirectory}${s}xsd${s}dmn13-catalog.xml</catalog>
+              <catalog>${project.build.outputDirectory}${s}xsd${s}dmn13-catalog.xml</catalog>
               <schemas>
                 <schema>
                   <fileset>

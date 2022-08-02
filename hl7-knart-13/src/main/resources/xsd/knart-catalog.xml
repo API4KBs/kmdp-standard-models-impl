@@ -24,4 +24,7 @@
   <uri name="urn:hl7-org:knowledgeartifact:r1"
     uri="org/hl7/knowledgeartifact/knowledgedocument.xsd"/>
 
+  <system systemId="http://www.w3.org/2001/xml.xsd"
+    uri="org/hl7/common/xml.xsd"/>
+
 </catalog>

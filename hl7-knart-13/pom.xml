@@ -47,6 +47,8 @@
               <goal>generate</goal>
             </goals>
             <configuration>
+              <catalog>${project.build.outputDirectory}/xsd/knart-catalog.xml</catalog>
+
               <schemas>
                 <schema>
                   <fileset>
