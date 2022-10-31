@@ -2,7 +2,22 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <name>KMDP :: Lang :: KMP :: Monitoring 1.0 Schemas</name>
   <artifactId>kmdp-monitoring-10</artifactId>
+
+  <parent>
+    <artifactId>kmdp-standard-models-impl</artifactId>
+    <groupId>edu.mayo.kmdp</groupId>
+    <version>11.2.6-SNAPSHOT</version>
+  </parent>
+
+  <properties>
+    <spec.name>openapi/edu/mayo/kmdp/monitor/spec/kmdpMonitoring.swagger.yaml</spec.name>
+  </properties>
+
   <build>
     <plugins>
       <plugin>
@@ -77,20 +92,5 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
-  <modelVersion>4.0.0</modelVersion>
-
-  <name>KMDP :: Lang :: KMP :: Monitoring 1.0 Schemas</name>
-
-  <parent>
-    <artifactId>kmdp-standard-models-impl</artifactId>
-    <groupId>edu.mayo.kmdp</groupId>
-    <version>11.2.5-SNAPSHOT</version>
-  </parent>
-
-  <properties>
-    <spec.name>openapi/edu/mayo/kmdp/monitor/spec/kmdpMonitoring.swagger.yaml</spec.name>
-  </properties>
-
 
 </project>
