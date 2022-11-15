@@ -29,6 +29,7 @@
     <module>omg-bkpmn-10</module>
     <module>w3c-odrl-21</module>
     <module>w3c-xsd-11</module>
+    <module>ihtsdo-scg</module>
   </modules>
 
   <name>KMDP :: Standard Languages (Meta)Models, Grammars and Schemas</name>
