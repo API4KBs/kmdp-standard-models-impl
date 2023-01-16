@@ -42,7 +42,7 @@
   <parent>
     <artifactId>kmdp-standard-models-impl</artifactId>
     <groupId>edu.mayo.kmdp</groupId>
-    <version>11.2.6-SNAPSHOT</version>
+    <version>11.2.6</version>
   </parent>
 
   <properties>
