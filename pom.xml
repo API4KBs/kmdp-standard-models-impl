@@ -3,13 +3,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <version>11.2.8</version>
+    <version>11.2.9-SNAPSHOT</version>
     <artifactId>kmdp-bom</artifactId>
     <groupId>edu.mayo.kmdp</groupId>
   </parent>
 
   <artifactId>kmdp-standard-models-impl</artifactId>
-  <version>11.2.8</version>
+  <version>11.2.9-SNAPSHOT</version>
 
   <packaging>pom</packaging>
 
