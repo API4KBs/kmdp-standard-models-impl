@@ -1,0 +1,18 @@
+<jxb:bindings
+  xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+  xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:mvf="https://www.omg.org/spec/MVF"
+  xmlns:namespace="http://jaxb2-commons.dev.java.net/namespace-prefix"
+  version="2.0">
+
+  <jxb:bindings schemaLocation="mvf.xsd">
+    <xjc:simple/>
+    <namespace:prefix name="mvf"/>
+    <jxb:schemaBindings>
+      <!-- JAXB cannot handle https-based NS properly -->
+      <jxb:package name="org.omg.spec.mvf._20220702.mvf"/>
+    </jxb:schemaBindings>
+  </jxb:bindings>
+
+</jxb:bindings>

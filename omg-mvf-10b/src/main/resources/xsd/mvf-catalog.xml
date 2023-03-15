@@ -1,0 +1,7 @@
+
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+
+  <public publicId="https://www.omg.org/spec/MVF/20220702/MODEL"
+    uri="org/omg/spec/mvf/_20220702/mvf.xsd"/>
+
+</catalog>

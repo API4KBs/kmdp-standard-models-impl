@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>kmdp-standard-models-impl</artifactId>
+    <groupId>edu.mayo.kmdp</groupId>
+    <version>11.2.9-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>omg-mvf-10b</artifactId>
+
+  <name>KMDP :: Lang :: OMG :: MVF 1.0 beta Schemas</name>
+
+  <properties>
+    <xsd-name>org/omg/spec/mvf/_20220702/mvf.xsd</xsd-name>
+  </properties>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>org.jvnet.jaxb2_commons</groupId>
+      <artifactId>jaxb2-basics</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>edu.mayo.kmdp</groupId>
+      <artifactId>kmdp-environment</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>edu.mayo.kmdp</groupId>
+      <artifactId>kmdp-utils</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>edu.mayo.kmdp</groupId>
+      <artifactId>kmdp-test-utils</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.jvnet.jaxb2.maven2</groupId>
+        <artifactId>maven-jaxb2-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>gen-mvf10b</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <catalog>${project.build.outputDirectory}/xsd/mvf-catalog.xml</catalog>
+
+              <useDependenciesAsEpisodes>true</useDependenciesAsEpisodes>
+
+              <schemas>
+                <schema>
+                  <fileset>
+                    <!-- Cannot use URL due to platform-specific file separators -->
+                    <directory>${project.build.outputDirectory}${file.separator}xsd</directory>
+                    <includes>
+                      <include>**/*.xsd</include>
+                    </includes>
+                  </fileset>
+                </schema>
+              </schemas>
+
+              <bindingDirectory>${project.build.outputDirectory}</bindingDirectory>
+              <bindingIncludes>
+                <include>**/*.xjb</include>
+                <include>**/*.episode</include>
+              </bindingIncludes>
+
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+
+</project>
