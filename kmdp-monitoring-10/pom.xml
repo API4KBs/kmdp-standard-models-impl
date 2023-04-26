@@ -11,7 +11,7 @@
   <parent>
     <artifactId>kmdp-standard-models-impl</artifactId>
     <groupId>edu.mayo.kmdp</groupId>
-    <version>11.2.10</version>
+    <version>11.2.11-SNAPSHOT</version>
   </parent>
 
   <properties>
