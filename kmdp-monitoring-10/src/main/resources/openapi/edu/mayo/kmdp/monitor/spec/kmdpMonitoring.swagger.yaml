@@ -115,12 +115,12 @@ definitions:
     description: The health endpoint schema
     type: object
     allOf:
+      - $ref: '#/definitions/DeployedApplication'
       - properties:
           schemaInfo:
             $ref: '#/definitions/SchemaMetaInfo'
           at:
             type: string
-      - $ref: '#/definitions/DeployedApplication'
 
   StateData:
     description: The state endpoint schema

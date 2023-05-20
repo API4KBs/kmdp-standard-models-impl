@@ -21,6 +21,7 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>io.swagger.codegen.v3</groupId>
         <artifactId>swagger-codegen-maven-plugin</artifactId>
         <dependencies>
           <dependency>
@@ -62,7 +63,6 @@
             <id>gen-code</id>
           </execution>
         </executions>
-        <groupId>io.swagger</groupId>
       </plugin>
     </plugins>
   </build>
@@ -78,7 +78,7 @@
     </dependency>
     <dependency>
       <artifactId>swagger-annotations</artifactId>
-      <groupId>io.swagger</groupId>
+      <groupId>io.swagger.core.v3</groupId>
     </dependency>
 
     <dependency>
