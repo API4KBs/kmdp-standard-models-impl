@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://kmdp.mayo.edu/ccg/services/agent/resources"
+            xmlns:annox="http://annox.dev.java.net"
+            xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+            xmlns:pns="http://kmdp.mayo.edu/ccg/services/agent"
+            xmlns:xmi="http://www.omg.org/spec/XMI/20131001"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            attributeFormDefault="qualified"
+            targetNamespace="http://kmdp.mayo.edu/ccg/services/agent/resources"
+            jaxb:extensionBindingPrefixes="annox"
+            jaxb:version="2.1">
+   <xs:import namespace="http://kmdp.mayo.edu/ccg/services/agent"
+               schemaLocation="agent.xsd"/>
+</xs:schema>

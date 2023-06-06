@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cpt="https://omg.org/spec/API4KP/20200801/umlprofile/cpt"
+xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:res="https://omg.org/spec/API4KP/20200801/umlprofile/res"
+xmlns:vs="https://omg.org/spec/API4KP/20200801/umlprofile/vs"
+xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML"
+xsi:schemaLocation="https://omg.org/spec/API4KP/20200801/umlprofile/cpt api4kp_uml_profiles.uml#_dJ23gYteEeiRSIHc8fFRog https://omg.org/spec/API4KP/20200801/umlprofile/res api4kp_uml_profiles.uml#_WeaTMYteEeiRSIHc8fFRog https://omg.org/spec/API4KP/20200801/umlprofile/vs api4kp_uml_profiles.uml#_vXLbwjjZEeixDIr3UM6KGQ">
+  <uml:Model xmi:id="_8pv9cGXGEem6YbFuEO-B0Q" name="MEAVocabularies" URI="http://kmdp.mayo.edu/vocab/mea">
+    <packagedElement xmi:type="uml:Package" xmi:id="_EwjsgGXHEem6YbFuEO-B0Q" name="sco">
+      <packageImport xmi:id="_h5Ec0M2bEemy1YkLyhNV4g"/>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_MWwo4GXHEem6YbFuEO-B0Q" name="ClinicalSituation" visibility="public"/>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_sVp_sGXNEem6YbFuEO-B0Q" name="ClinicalTask" visibility="public"/>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_JFopMJcFEemWu4pNncEvhQ" name="PropositionalConcepts" visibility="public"/>
+      <packagedElement xmi:type="uml:Enumeration" xmi:id="_RbdegON3Eeq_ZNpk-x6b2g" name="RelatedConcept" visibility="public"/>
+      <profileApplication xmi:id="_WvYCgGXHEem6YbFuEO-B0Q">
+        <eAnnotations xmi:id="_WvYCgWXHEem6YbFuEO-B0Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <references xmi:type="ecore:EPackage" href="api4kp_uml_profiles.uml#_vXLbwjjZEeixDIr3UM6KGQ"/>
+        </eAnnotations>
+        <appliedProfile href="api4kp_uml_profiles.uml#_fSURADjZEeixDIr3UM6KGQ"/>
+      </profileApplication>
+      <profileApplication xmi:id="_q0zFUON3Eeq_ZNpk-x6b2g">
+        <eAnnotations xmi:id="_q0zFUeN3Eeq_ZNpk-x6b2g" source="http://www.eclipse.org/uml2/2.0.0/UML">
+          <references xmi:type="ecore:EPackage" href="../uml/api4kp_uml_profiles.uml#_vXLbwjjZEeixDIr3UM6KGQ"/>
+        </eAnnotations>
+        <appliedProfile href="api4kp_uml_profiles.uml#_fSURADjZEeixDIr3UM6KGQ"/>
+      </profileApplication>
+    </packagedElement>
+    <profileApplication xmi:id="_JFrsgJcFEemWu4pNncEvhQ">
+      <eAnnotations xmi:id="_JFuIwJcFEemWu4pNncEvhQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="api4kp_uml_profiles.uml#_vXLbwjjZEeixDIr3UM6KGQ"/>
+      </eAnnotations>
+      <appliedProfile href="api4kp_uml_profiles.uml#_fSURADjZEeixDIr3UM6KGQ"/>
+    </profileApplication>
+  </uml:Model>
+  <vs:ValueSet xmi:id="_aGqucGXHEem6YbFuEO-B0Q" uri="https://ontology.mayo.edu/taxonomies/clinicalsituations/20190801/" base_Enumeration="_MWwo4GXHEem6YbFuEO-B0Q"/>
+  <vs:ValueSet xmi:id="_sVp_sWXNEem6YbFuEO-B0Q" uri="https://ontology.mayo.edu/taxonomies/ClinicalTasks/20190801/" base_Enumeration="_sVp_sGXNEem6YbFuEO-B0Q"/>
+  <vs:ValueSet xmi:id="_JF2roJcFEemWu4pNncEvhQ" uri="https://ontology.mayo.edu/taxonomies/propositionalconcepts/20190801/" base_Enumeration="_JFopMJcFEemWu4pNncEvhQ"/>
+  <vs:ValueSet xmi:id="_q0zsYON3Eeq_ZNpk-x6b2g" uri="https://ontology.mayo.edu/taxonomies/KMDO/RelatedConcept" base_Enumeration="_RbdegON3Eeq_ZNpk-x6b2g"/>
+</xmi:XMI>

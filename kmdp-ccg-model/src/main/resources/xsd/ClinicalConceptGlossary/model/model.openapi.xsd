@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://kmdp.mayo.edu/ccg/model/resources"
+            xmlns:annox="http://annox.dev.java.net"
+            xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+            xmlns:pns="http://kmdp.mayo.edu/ccg/model"
+            xmlns:xmi="http://www.omg.org/spec/XMI/20131001"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified"
+            attributeFormDefault="qualified"
+            targetNamespace="http://kmdp.mayo.edu/ccg/model/resources"
+            jaxb:extensionBindingPrefixes="annox"
+            jaxb:version="2.1">
+   <xs:import namespace="http://kmdp.mayo.edu/ccg/model" schemaLocation="model.xsd"/>
+   <xs:element name="glossaryEntry">
+      <xs:complexType>
+         <xs:annotation>
+            <xs:appinfo>
+               <annox:annotateClass>@javax.xml.bind.annotation.XmlRootElement(name="glossaryEntry", namespace="http://kmdp.mayo.edu/ccg/model")</annox:annotateClass>
+            </xs:appinfo>
+         </xs:annotation>
+         <xs:complexContent>
+            <xs:extension base="pns:GlossaryEntry"/>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="operationalDefinition">
+      <xs:complexType>
+         <xs:annotation>
+            <xs:appinfo>
+               <annox:annotateClass>@javax.xml.bind.annotation.XmlRootElement(name="operationalDefinition", namespace="http://kmdp.mayo.edu/ccg/model")</annox:annotateClass>
+            </xs:appinfo>
+         </xs:annotation>
+         <xs:complexContent>
+            <xs:extension base="pns:OperationalDefinition"/>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="definition">
+      <xs:complexType>
+         <xs:annotation>
+            <xs:appinfo>
+               <annox:annotateClass>@javax.xml.bind.annotation.XmlRootElement(name="definition", namespace="http://kmdp.mayo.edu/ccg/model")</annox:annotateClass>
+            </xs:appinfo>
+         </xs:annotation>
+         <xs:complexContent>
+            <xs:extension base="pns:Definition"/>
+         </xs:complexContent>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>
