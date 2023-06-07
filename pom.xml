@@ -18,7 +18,7 @@
     <module>hl7-fhir-dstu2</module>
     <module>hl7-fhir-stu3</module>
     <module>hl7-knart-13</module>
-    <module>kmdp-ccg-model</module>
+    <module>kmdp-owls-model</module>
     <module>omg-dmn-11</module>
     <module>omg-dmn-12</module>
     <module>omg-dmn-13</module>

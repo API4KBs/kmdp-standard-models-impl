@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_A3z7YMY8Eeia9-f8qyblcg" name="fhir-ref">
-  <packagedElement xmi:type="uml:Package" xmi:id="_r3ZJ8MWpEeia9-f8qyblcg" name="fhir-model" URI="http://hl7.org/fhir/dstu3/models">
-    <packagedElement xmi:type="uml:Class" xmi:id="_vJZGMMWpEeia9-f8qyblcg" name="DataElement" visibility="public"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_Ng66UMteEemy1YkLyhNV4g" name="Bundle" visibility="public"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_ScBBYM86EemsLerH8Mg6ig" name="Parameters" visibility="public"/>
-  </packagedElement>
-</uml:Model>
