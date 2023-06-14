@@ -34,6 +34,9 @@
          <jaxb:bindings node="//xs:group[@name='ServiceProfile.content']//xs:element[@name='serviceParameters']">
             <annox:annotate target="getter">@de.escalon.hypermedia.hydra.mapping.Expose( "http://www.daml.org/services/owl-s/1.2/Process.owl#serviceParameter" )</annox:annotate>
          </jaxb:bindings>
+         <jaxb:bindings node="//xs:group[@name='ServiceProfile.content']//xs:element[@name='output']">
+            <annox:annotate target="getter">@de.escalon.hypermedia.hydra.mapping.Expose( "http://www.daml.org/services/owl-s/1.2/Process.owl#hasOutput" )</annox:annotate>
+         </jaxb:bindings>
       </jaxb:bindings>
       <jaxb:bindings node="xs:complexType[@name='VariableBinding']">
          <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonIdentityInfo( generator = com.fasterxml.jackson.annotation.ObjectIdGenerators.PropertyGenerator.class )</annox:annotate>
@@ -139,6 +142,18 @@
          </jaxb:bindings>
          <jaxb:bindings node="//xs:attributeGroup[@name='ServiceParameter.attrs']/xs:attribute[@name='sParameter']">
             <annox:annotate target="getter">@de.escalon.hypermedia.hydra.mapping.Expose( "http://www.daml.org/services/owl-s/1.2/generic/Expression.owl#sParameter" )</annox:annotate>
+         </jaxb:bindings>
+      </jaxb:bindings>
+      <jaxb:bindings node="xs:complexType[@name='Output']">
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonIdentityInfo( generator = com.fasterxml.jackson.annotation.ObjectIdGenerators.PropertyGenerator.class )</annox:annotate>
+         <jaxb:bindings node="//xs:attributeGroup[@name='Output.attrs']/xs:attribute[@name='id']">
+            <annox:annotate target="getter">@com.fasterxml.jackson.annotation.JsonProperty("@id")</annox:annotate>
+         </jaxb:bindings>
+         <annox:annotate target="class">@com.fasterxml.jackson.annotation.JsonTypeInfo( use = Id.NAME,  include = As.PROPERTY,  defaultImpl = ServiceParameter.class,  property = "_class" )</annox:annotate>
+         <annox:annotate target="class">@de.escalon.hypermedia.hydra.mapping.Expose( "http://www.daml.org/services/owl-s/1.2/Process.owl#Output" )</annox:annotate>
+         <annox:annotate target="class">@de.escalon.hypermedia.hydra.mapping.Vocab( "http://www.daml.org/services/owl-s/1.2/Process.owl#" )</annox:annotate>
+         <jaxb:bindings node="//xs:attributeGroup[@name='Output.attrs']/xs:attribute[@name='parameterType']">
+            <annox:annotate target="getter">@de.escalon.hypermedia.hydra.mapping.Expose( "http://www.daml.org/services/owl-s/1.2/Process.owl#parameterType" )</annox:annotate>
          </jaxb:bindings>
       </jaxb:bindings>
    </jaxb:bindings>

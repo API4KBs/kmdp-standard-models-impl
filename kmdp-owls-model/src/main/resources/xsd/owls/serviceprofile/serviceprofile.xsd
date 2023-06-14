@@ -31,6 +31,11 @@
                       type="tns:ServiceParameter"
                       minOccurs="0"
                       maxOccurs="unbounded"/>
+         <xs:element xmlns:tns="http://kmdp.mayo.edu/owls/serviceprofile"
+                      name="output"
+                      type="tns:Output"
+                      minOccurs="0"
+                      maxOccurs="1"/>
       </xs:sequence>
    </xs:group>
    <xs:attributeGroup name="ServiceProfile.attrs">
@@ -177,6 +182,18 @@
    <xs:attributeGroup name="ServiceParameter.attrs">
       <xs:attribute name="serviceParameterName" type="xs:string"/>
       <xs:attribute name="sParameter" type="xs:anyURI"/>
+      <xs:attribute name="id" use="optional" type="xs:anyURI"/>
+   </xs:attributeGroup>
+   <xs:element name="output" type="Output"/>
+   <xs:complexType xmi:id="_3S29kBSyEe2rLYEJODixZA" name="Output">
+      <xs:group ref="Output.content"/>
+      <xs:attributeGroup ref="Output.attrs"/>
+   </xs:complexType>
+   <xs:group name="Output.content">
+      <xs:sequence/>
+   </xs:group>
+   <xs:attributeGroup name="Output.attrs">
+      <xs:attribute name="parameterType" type="xs:anyURI"/>
       <xs:attribute name="id" use="optional" type="xs:anyURI"/>
    </xs:attributeGroup>
 </xs:schema>
