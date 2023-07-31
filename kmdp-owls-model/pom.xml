@@ -6,7 +6,7 @@
   <parent>
     <groupId>edu.mayo.kmdp</groupId>
     <artifactId>kmdp-standard-models-impl</artifactId>
-    <version>12.0.1-SNAPSHOT</version>
+    <version>12.0.1</version>
   </parent>
 
   <name>KMDP :: Lang :: OWL-S :: Model</name>
